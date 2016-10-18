@@ -11,7 +11,8 @@
     (setq slime-contribs '(slime-fancy))
     (add-hook 'lisp-mode-hook 'turn-on-eldoc-mode)
     (add-hook 'lisp-mode-hook 'highlight-numbers-mode)
-    (add-hook 'lisp-mode-hook 'highlight-quoted-mode)))
+    (add-hook 'lisp-mode-hook 'highlight-quoted-mode)
+    (add-hook 'lisp-mode-hool 'paren-face-mode)))
 
 (use-package slime-company
   :ensure t

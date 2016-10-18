@@ -23,7 +23,7 @@
 ;; mac modifier keys - make Command as Meta, Option as Alt
 (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier 'alt))
+  (setq mac-option-modifier 'meta))
 
 ;; take the short answer y/n is yes/no
 (defalias 'yes-or-no-p 'y-or-n-p)

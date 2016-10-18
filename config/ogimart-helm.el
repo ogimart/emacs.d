@@ -23,11 +23,14 @@
 
     (helm-autoresize-mode nil)
     (helm-mode 1)
-    
+
     (use-package helm-ag
       :ensure helm-ag
       :pin melpa-stable
-      :bind ("C-c a" . helm-ag))
+      :bind ("C-c a" . helm-ag)
+      :config
+      (custom-set-variables
+       '(helm-ag-insert-at-point 'symbol)))
 
     (after 'projectile
       (use-package helm-projectile

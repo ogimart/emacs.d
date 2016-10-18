@@ -9,7 +9,8 @@
   (progn
     (add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
     (add-hook 'clojure-mode-hook 'highlight-numbers-mode)
-    (add-hook 'clojure-mode-hook 'highlight-quoted-mode)))
+    (add-hook 'clojure-mode-hook 'highlight-quoted-mode)
+    (add-hook 'clojure-mode-hook 'paren-face-mode)))
 
 (use-package cider
   :ensure t
@@ -20,5 +21,16 @@
     (setq cider-repl-use-clojure-font-lock t)
     (add-hook 'cider-repl-mode-hook #'company-mode)
     (add-hook 'cider-mode-hook #'company-mode)))
+
+;; (use-package clj-refactor
+;;   :ensure t
+;;   :pin melpa-stable
+;;   :config
+;;   (progn
+;;     (setq cljr-suppress-middleware-warnings t)
+;;     (add-hook 'clojure-mode-hook clj-refactor-mode)
+;;     (lambda ()
+;;       (clj-refactor-mode 1)
+;;       (cljr-add-keybindings-with-prefix "C-c C-m"))))
 
 (provide 'ogimart-clojure)

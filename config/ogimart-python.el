@@ -11,13 +11,15 @@
     (defun shell-plus-toggle ()
       (interactive)
       (cond ((eq shell-plus nil)
-             (setq python-shell-interpreter-args
+             (setq python-shell-interpreter "python"
+                   python-shell-interpreter-args
                    (concat (projectile-project-root)
                            "manage.py shell_plus")
                    shell-plus t)
-             (message "interpreter: ipython manage.py shell_plus"))
+             (message "interpreter: python manage.py shell_plus"))
             ((eq shell-plus t)
-             (setq python-shell-interpreter-args ""
+             (setq python-shell-interpreter "ipython"
+                   python-shell-interpreter-args ""
                    shell-plus nil)
              (message "interpreter: ipython"))))
 
@@ -60,8 +62,8 @@
                   (goto-char (nth 1 p))))))
       (add-hook 'python-mode-hook
                 '(lambda ()
-                   (local-set-key (kbd "C-c ,") 'jedi:jump-to-definition)
-                   (local-set-key (kbd "C-c .") 'jedi:jump-back)
+                   (local-set-key (kbd "C-c .") 'jedi:jump-to-definition)
+                   (local-set-key (kbd "C-c ,") 'jedi:jump-back)
                    (local-set-key (kbd "C-c k") 'jedi:show-doc))))))
 
 (use-package virtualenvwrapper

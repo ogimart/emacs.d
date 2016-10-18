@@ -32,3 +32,9 @@
 (require 'ogimart-clojure)     ;; clojure-mode, cider
 (require 'ogimart-python)      ;; company-jedi, virtualenvwrapper
 (require 'ogimart-sql)         ;; sql
+(require 'ogimart-eshell)      ;; eshell
+
+;; emacs server
+(require 'server)
+(unless (server-running-p)
+  (server-start))

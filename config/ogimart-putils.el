@@ -1,7 +1,7 @@
 ;; ogimart-putils.el
 ;;
 ;; uses: company, flycheck, highlight-numbers, highlight-quoted,
-;;       yaml-mode, restclient, whitespace
+;;       paren-face, yaml-mode, restclient, whitespace
 
 (use-package company
   :ensure t
@@ -17,6 +17,10 @@
   :pin melpa)
 
 (use-package highlight-quoted
+  :ensure t
+  :pin melpa)
+
+(use-package paren-face
   :ensure t
   :pin melpa)
 
@@ -46,5 +50,6 @@
 
 (add-hook 'emacs-lisp-mode-hook 'highlight-numbers-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
+(add-hook 'emacs-lisp-mode-hook 'paren-face-mode)
 
 (provide 'ogimart-putils)

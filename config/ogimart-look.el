@@ -1,33 +1,27 @@
 ;; ogimart-look.el
 ;;
-;; uses: noctilux-theme, smart-mode-line 
+;; uses: solarized-theme, smart-mode-line
 
 ;; srgb colors
 (setq ns-use-srgb-colorspace t)
 
-;; set adobe source code pro font, use only light wight
-(set-default-font
- "-*-Source Code Pro-light-normal-normal-*-12-*-*-*-m-0-iso10646-1")
-(mapc (lambda (face)
-        (set-face-attribute face nil :weight 'light))
-      (face-list))
+;; font
+(set-default-font "Inconsolata-14")
 
-;; noctilux color theme
-(use-package noctilux-theme
-  :ensure noctilux-theme
-  :pin melpa-stable
+;; solarized color theme
+(use-package solarized-theme
+  :ensure solarized-theme
+  :pin melpa
   :config
   (progn
-    (load-theme 'noctilux t)))
-
-;; cursor & paren match
-(blink-cursor-mode 0)
-(set-face-attribute 'show-paren-match-face nil
-                    :foreground "white smoke"
-                    :background "dim gray")
-
-;; selected region
-(set-face-attribute 'region nil :background "white" :foreground "royal blue")
+    (load-theme 'solarized-dark t)
+    (setq solarized-emphasize-indicators nil)
+    (setq solarized-use-less-bold t)
+    (set-face-attribute 'region nil
+                        :background "#073642"
+                        :foreground "#eee8d5")
+    (set-cursor-color "#fdf6e3")
+    (blink-cursor-mode 0)))
 
 ;; mode line
 (use-package smart-mode-line
@@ -37,11 +31,7 @@
   (progn
     (setq sml/no-confirm-load-theme t)
     (setq sml/theme 'respectful)
-    (sml/setup)))
-
-;; vertical border
-(set-face-attribute 'vertical-border
-                    nil
-                    :foreground "grey13")
+    (sml/setup)
+    (setq solarized-high-contrast-mode-line t)))
 
 (provide 'ogimart-look)
