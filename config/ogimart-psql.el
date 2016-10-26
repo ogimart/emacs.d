@@ -52,4 +52,4 @@
               (lambda ()
                 (toggle-truncate-lines t)))))
 
-(provide 'ogimart-sql)
+(provide 'ogimart-psql)

@@ -31,7 +31,7 @@
 (require 'ogimart-common-lisp) ;; slime, slime-company
 (require 'ogimart-clojure)     ;; clojure-mode, cider
 (require 'ogimart-python)      ;; company-jedi, virtualenvwrapper
-(require 'ogimart-sql)         ;; sql
+(require 'ogimart-psql)        ;; sql
 (require 'ogimart-eshell)      ;; eshell
 
 ;; emacs server

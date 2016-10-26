@@ -23,7 +23,6 @@
 (use-package magit
   :ensure magit
   :pin melpa-stable
-  :bind (("C-c g s" . magit-status)
-         ("C-c g d" . magit-diff)))
+  :bind ("C-c g" . magit-status))
 
 (provide 'ogimart-project)
