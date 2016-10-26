@@ -1,4 +1,4 @@
-# My Emacs 24.5 Configuration
+# My Emacs 25.1 Configuration
 
 ## Major packages
 

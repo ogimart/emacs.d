@@ -23,11 +23,11 @@
 
 ; my packages
 (require 'ogimart-core)        ;; core settings
-(require 'ogimart-look)        ;; noctilux-theme, smart-mode-line, font
+(require 'ogimart-look)        ;; solarized-theme, smart-mode-line, font
 (require 'ogimart-interactive) ;; interactive commands
-(require 'ogimart-helm)        ;; helm, helm-projectile, helm-ag
+(require 'ogimart-helm)        ;; helm, helm-projectile, helm-ag, helm-mt
 (require 'ogimart-project)     ;; projectile, project-explorer, magit
-(require 'ogimart-putils)      ;; company, flycheck, ...
+(require 'ogimart-putils)      ;; company, flycheck, realgud, multi-term ...
 (require 'ogimart-common-lisp) ;; slime, slime-company
 (require 'ogimart-clojure)     ;; clojure-mode, cider
 (require 'ogimart-python)      ;; company-jedi, virtualenvwrapper
