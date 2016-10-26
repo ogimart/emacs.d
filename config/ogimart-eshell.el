@@ -13,11 +13,13 @@
     (after 'projectile
 
       (defun eshell/git-branch ()
-        (if (and (projectile-project-p)
-                 (executable-find "git"))
-            (car
-             (split-string
-              (shell-command-to-string "git rev-parse --abbrev-ref HEAD") "\n"))
+        (if (executable-find "git")
+            (let ((branch (car
+                           (split-string
+                            (shell-command-to-string
+                             "git rev-parse --abbrev-ref HEAD") "\n"))))
+              (if (string= (car (split-string branch ":")) "fatal")
+                  "" (concat " [" branch "]")))
           ""))
 
       (defun eshell/venv ()
@@ -33,7 +35,7 @@
                           :foreground "#2aa198")
                (with-face (concat "[" (eshell/pwd) "]")
                           :foreground "#268bd2")
-               (with-face (concat " [" (eshell/git-branch) "]")
+               (with-face (eshell/git-branch)
                           :foreground "#6c71c4")
                (with-face "\n> ")))
             eshell-prompt-regexp (concat "^" (regexp-quote "> "))))))

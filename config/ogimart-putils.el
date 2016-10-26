@@ -1,7 +1,7 @@
 ;; ogimart-putils.el
 ;;
-;; uses: company, flycheck, highlight-numbers, highlight-quoted,
-;;       paren-face, yaml-mode, restclient, whitespace
+;; uses: company, flycheck, realgud, highlight-numbers, highlight-quoted,
+;;       paren-face, yaml-mode, restclient, whitespace, multi-term
 
 (use-package company
   :ensure t
@@ -11,6 +11,10 @@
 (use-package flycheck
   :ensure t
   :pin melpa-stable)
+
+(use-package realgud
+  :ensure t
+  :pin melpa)
 
 (use-package highlight-numbers
   :ensure t
@@ -38,9 +42,20 @@
   :init
   (add-hook 'prog-mode-hook 'whitespace-mode)
   :config
-  (setq-default whitespace-line-column 80
+  (setq-default whitespace-line-column 100
                 whitespace-style '(face lines-tail trailing))
   :diminish whitespace-mode)
+
+(use-package multi-term
+  :ensure t
+  :pin melpa
+  :config
+  (setq multi-term-program "/bin/zsh")
+  (add-hook 'term-mode-hook
+            (lambda ()
+              (setq term-buffer-maximum-size 10000)
+              (add-to-list 'term-bind-key-alist '("M-[" . multi-term-prev))
+              (add-to-list 'term-bind-key-alist '("M-]" . multi-term-next)))))
 
 (add-to-list 'auto-mode-alist '("\\.zsh$'" . sh-mode))
 (add-hook 'sh-mode-hook

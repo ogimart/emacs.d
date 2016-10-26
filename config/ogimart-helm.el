@@ -1,6 +1,6 @@
 ;; ogimart-helm.el
 ;;
-;; uses: helm, helm-projectile, helm-ag
+;; uses: helm, helm-projectile, helm-ag, helm-mt
 
 (use-package helm
   :ensure helm
@@ -31,6 +31,11 @@
       :config
       (custom-set-variables
        '(helm-ag-insert-at-point 'symbol)))
+
+    (use-package helm-mt
+      :ensure helm-mt
+      :pin melpa-stable
+      :bind ("C-c t" . helm-mt))
 
     (after 'projectile
       (use-package helm-projectile

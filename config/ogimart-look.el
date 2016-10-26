@@ -14,13 +14,16 @@
   :pin melpa
   :config
   (progn
-    (load-theme 'solarized-dark t)
+    ;; light
+    (load-theme 'solarized-light t)
+
+    ;; dark
+    ;; (load-theme 'solarized-dark t)
+    ;; (set-cursor-color "#fdf6e3")
+
+    ;; settings
     (setq solarized-emphasize-indicators nil)
     (setq solarized-use-less-bold t)
-    (set-face-attribute 'region nil
-                        :background "#073642"
-                        :foreground "#eee8d5")
-    (set-cursor-color "#fdf6e3")
     (blink-cursor-mode 0)))
 
 ;; mode line
@@ -32,6 +35,11 @@
     (setq sml/no-confirm-load-theme t)
     (setq sml/theme 'respectful)
     (sml/setup)
-    (setq solarized-high-contrast-mode-line t)))
+    (setq solarized-high-contrast-mode-line t)
+    (setq visible-bell nil)
+    (setq ring-bell-function
+          (lambda ()
+            (invert-face 'mode-line)
+            (run-with-timer 0.1 nil 'invert-face 'mode-line)))))
 
 (provide 'ogimart-look)
