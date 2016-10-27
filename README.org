@@ -1,33 +1,50 @@
 * Emacs 25 Configuration
 
-** Emacs Install
+** Installatiion
 
 *** OS X
+
+**** Install Emacs
 
 Install Emacs Mac Port with homebrew:
 
 #+BEGIN_SRC bash
   $ brew tap railwaycat/emacsmacport
   $ brew install emacs-mac
-  $ brew linkapps
 #+END_SRC
 
-Create aliases in shell profile file such as ~~/.bash_profile~:
+Create aliases in shell profile file such as ~\~/.bash_profile~:
 
 #+BEGIN_SRC bash
-  alias ew='/usr/local/opt/emacs-mac/Emacs.app/Contents/MacOS/Emacs.sh'
+  alias ew='/usr/local/opt/emacs-mac/Emacs.app/Contents/MacOS/Emacs'
   alias ec='/usr/local/bin/emacsclient -n'
 #+END_SRC
 
-** Major Packages
+**** Config Emacs
+
+Clone repository:
+
+#+BEGIN_SRC bash
+  $ cd ~/editors_config
+  $ git clone https://github.com/ogimart/emacs.d.git
+#+END_SRC
+
+Create symbolic link for emacs.d and init.el:
+
+#+BEGIN_SRC bash
+  $ cd emacs.d
+  $ ./synlink-emacs-d
+#+END_SRC
+
+** Major Packages Used
 
 - Helm
 - Projectile
 - Magit
 - Company
-- Flyecheck
+- Flycheck
 
-** Programming languages
+** Programming Languages Supported
 
 - Common Lisp
 - Clojure
