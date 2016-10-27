@@ -1,7 +1,7 @@
 ;; ogimart-putils.el
 ;;
-;; uses: company, flycheck, realgud, highlight-numbers, highlight-quoted,
-;;       paren-face, yaml-mode, restclient, whitespace, multi-term
+;; uses: company, flycheck, realgud, yaml-mode,
+;;       restclient, whitespace, multi-term
 
 (use-package company
   :ensure t
@@ -13,18 +13,6 @@
   :pin melpa-stable)
 
 (use-package realgud
-  :ensure t
-  :pin melpa)
-
-(use-package highlight-numbers
-  :ensure t
-  :pin melpa)
-
-(use-package highlight-quoted
-  :ensure t
-  :pin melpa)
-
-(use-package paren-face
   :ensure t
   :pin melpa)
 
@@ -62,9 +50,5 @@
           (lambda ()
             (if (string-match "\\.zsh$" buffer-file-name)
                 (sh-set-shell "zsh"))))
-
-(add-hook 'emacs-lisp-mode-hook 'highlight-numbers-mode)
-(add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
-(add-hook 'emacs-lisp-mode-hook 'paren-face-mode)
 
 (provide 'ogimart-putils)

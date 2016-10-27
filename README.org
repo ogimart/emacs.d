@@ -1,0 +1,34 @@
+* Emacs 25 Configuration
+
+** Emacs Install
+
+*** OS X
+
+Install Emacs Mac Port with homebrew:
+
+#+BEGIN_SRC bash
+  $ brew tap railwaycat/emacsmacport
+  $ brew install emacs-mac
+  $ brew linkapps
+#+END_SRC
+
+Create aliases in shell profile file such as ~~/.bash_profile~:
+
+#+BEGIN_SRC bash
+  alias ew='/usr/local/opt/emacs-mac/Emacs.app/Contents/MacOS/Emacs.sh'
+  alias ec='/usr/local/bin/emacsclient -n'
+#+END_SRC
+
+** Major Packages
+
+- Helm
+- Projectile
+- Magit
+- Company
+- Flyecheck
+
+** Programming languages
+
+- Common Lisp
+- Clojure
+- Python

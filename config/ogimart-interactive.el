@@ -15,7 +15,7 @@
   (next-line 1)
   (when newline-and-indent
     (indent-according-to-mode)))
-(global-set-key (kbd "M-o") 'open-next-line)
+(global-set-key (kbd "C-o") 'open-next-line)
 
 ;; Behave like vi's O command
 (defun open-previous-line (arg)
@@ -25,7 +25,7 @@
   (open-line arg)
   (when newline-and-indent
     (indent-according-to-mode)))
-(global-set-key (kbd "C-o") 'open-previous-line)
+(global-set-key (kbd "M-o") 'open-previous-line)
 
 ;; Autoindent open-*-lines
 (defvar newline-and-indent t)
