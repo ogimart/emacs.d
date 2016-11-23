@@ -28,13 +28,15 @@
 (require 'ogimart-helm)        ;; helm, helm-projectile, helm-ag, helm-mt
 (require 'ogimart-project)     ;; projectile, project-explorer, magit
 (require 'ogimart-putils)      ;; company, flycheck, realgud, multi-term ...
-(require 'ogimart-common-lisp) ;; slime, slime-company
+(require 'ogimart-lisp)        ;; slime, slime-company
 (require 'ogimart-clojure)     ;; clojure-mode, cider
 (require 'ogimart-python)      ;; company-jedi, virtualenvwrapper
 (require 'ogimart-psql)        ;; sql
 (require 'ogimart-eshell)      ;; eshell
+(require 'ogimart-java)        ;; eclim, company-emacs-eclim
 
 ;; emacs server
 (require 'server)
 (unless (server-running-p)
   (server-start))
+

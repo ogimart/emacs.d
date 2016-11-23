@@ -9,16 +9,30 @@
 ;; font
 (set-default-font "Inconsolata-14")
 
+(defun sm-font ()
+  (interactive)
+  (set-default-font "Inconsolata-13"))
+
+(defun md-font ()
+  (interactive)
+  (set-default-font "Inconsolata-14"))
+
+(defun lg-font ()
+  (interactive)
+  (set-default-font "Inconsolata-15"))
+
 ;; solarized color theme
 (use-package solarized-theme
   :ensure solarized-theme
   :pin melpa
   :config
   (progn
-    (load-theme 'solarized-light t)
+    (load-theme 'solarized-dark t)
     (setq solarized-emphasize-indicators nil)
     (setq solarized-use-less-bold t)
-    (blink-cursor-mode 0)))
+    (setq solarized-scale-org-headlines nil)
+    (blink-cursor-mode 0)
+    (set-cursor-color "white smoke")))
 
 ;; mode line
 (use-package smart-mode-line
@@ -47,9 +61,5 @@
 (use-package paren-face
   :ensure t
   :pin melpa)
-
-(add-hook 'emacs-lisp-mode-hook 'highlight-numbers-mode)
-(add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
-(add-hook 'emacs-lisp-mode-hook 'paren-face-mode)
 
 (provide 'ogimart-look)

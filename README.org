@@ -13,7 +13,7 @@ Install Emacs Mac Port with homebrew:
   $ brew install emacs-mac
 #+END_SRC
 
-Create aliases in shell profile file such as ~\~/.bash_profile~:
+Create aliases in shell profile file such as ~.bash_profile~:
 
 #+BEGIN_SRC bash
   alias ew='/usr/local/opt/emacs-mac/Emacs.app/Contents/MacOS/Emacs'
@@ -49,3 +49,4 @@ Create symbolic link for emacs.d and init.el:
 - Common Lisp
 - Clojure
 - Python
+- Java (requires Eclips and eclim)
