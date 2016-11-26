@@ -16,6 +16,10 @@
   :ensure t
   :pin melpa)
 
+(use-package aggressive-indent
+  :ensure t
+  :pin melpa)
+
 (use-package yaml-mode
   :ensure t
   :pin melpa

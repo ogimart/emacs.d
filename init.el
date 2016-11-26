@@ -35,8 +35,10 @@
 (require 'ogimart-eshell)      ;; eshell
 (require 'ogimart-java)        ;; eclim, company-emacs-eclim
 
+;; custom set
+(setq custom-file "~/.emacs.d/custom.el")
+
 ;; emacs server
 (require 'server)
 (unless (server-running-p)
   (server-start))
-

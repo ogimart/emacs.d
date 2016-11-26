@@ -37,6 +37,7 @@
 
     (add-hook 'python-mode-hook 'flycheck-mode)
     (add-hook 'python-mode-hook 'turn-on-eldoc-mode)
+    (add-hook 'python-mode-hook 'aggressive-indent-mode)
     (add-hook 'python-mode-hook
               '(lambda ()
                  (local-set-key (kbd "C-c i")   'ipython-interpeter)

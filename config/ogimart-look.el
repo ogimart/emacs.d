@@ -9,30 +9,20 @@
 ;; font
 (set-default-font "Inconsolata-14")
 
-(defun sm-font ()
-  (interactive)
-  (set-default-font "Inconsolata-13"))
-
-(defun md-font ()
-  (interactive)
-  (set-default-font "Inconsolata-14"))
-
-(defun lg-font ()
-  (interactive)
-  (set-default-font "Inconsolata-15"))
-
-;; solarized color theme
-(use-package solarized-theme
-  :ensure solarized-theme
+(use-package zenburn-theme
+  :ensure zenburn-theme
   :pin melpa
   :config
   (progn
-    (load-theme 'solarized-dark t)
-    (setq solarized-emphasize-indicators nil)
-    (setq solarized-use-less-bold t)
-    (setq solarized-scale-org-headlines nil)
-    (blink-cursor-mode 0)
-    (set-cursor-color "white smoke")))
+    (load-theme 'zenburn t)
+    (set-foreground-color "#D6D6D6")
+    (set-face-attribute 'show-paren-match-face nil
+                        :foreground "white smoke"
+                        :background "#6F6F6F")
+    (set-face-attribute 'vertical-border
+                        nil
+                        :foreground "#6F6F6F")
+    (blink-cursor-mode 0)))
 
 ;; mode line
 (use-package smart-mode-line
@@ -43,7 +33,6 @@
     (setq sml/no-confirm-load-theme t)
     (setq sml/theme 'respectful)
     (sml/setup)
-    (setq solarized-high-contrast-mode-line t)
     (setq visible-bell nil)
     (setq ring-bell-function
           (lambda ()

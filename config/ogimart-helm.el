@@ -1,6 +1,6 @@
 ;; ogimart-helm.el
 ;;
-;; uses: helm, helm-projectile, helm-ag, helm-mt
+;; uses: helm, helm-projectile, helm-ag, helm-mt, cljr-helm
 
 (use-package helm
   :ensure helm
@@ -22,26 +22,32 @@
      helm-autoresize-min-height           25)
 
     (helm-autoresize-mode nil)
-    (helm-mode 1)
+    (helm-mode 1)))
 
-    (use-package helm-ag
-      :ensure helm-ag
-      :pin melpa-stable
-      :bind ("C-c a" . helm-ag)
-      :config
-      (custom-set-variables
-       '(helm-ag-insert-at-point 'symbol)))
+(use-package helm-ag
+  :ensure helm-ag
+  :pin melpa-stable
+  :bind ("C-c a" . helm-ag)
+  :config
+  (custom-set-variables
+   '(helm-ag-insert-at-point 'symbol)))
 
-    (use-package helm-mt
-      :ensure helm-mt
-      :pin melpa-stable
-      :bind ("C-c t" . helm-mt))
+(after 'multi-term
+  (use-package helm-mt
+    :ensure helm-mt
+    :pin melpa-stable
+    :bind ("C-c t" . helm-mt)))
 
-    (after 'projectile
-      (use-package helm-projectile
-        :ensure helm-projectile
-        :pin melpa-stable
-        :config
-        (helm-projectile-on)))))
+(after 'projectile
+  (use-package helm-projectile
+    :ensure helm-projectile
+    :pin melpa-stable
+    :config
+    (helm-projectile-on)))
+
+(after 'clj-refactor
+  (use-package cljr-helm
+    :ensure cljr-helm
+    :pin melpa))
 
 (provide 'ogimart-helm)

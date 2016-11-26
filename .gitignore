@@ -4,5 +4,9 @@
 # Packaging
 .cask
 
-# EShell History
+# EShell
 eshell/history
+eshell/lastdir
+
+# Emacs Customization File
+custom.el
