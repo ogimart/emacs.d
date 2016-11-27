@@ -1,4 +1,4 @@
-;; ogimart-helm.el
+;; om-helm.el
 ;;
 ;; uses: helm, helm-projectile, helm-ag, helm-mt, cljr-helm
 
@@ -50,4 +50,4 @@
     :ensure cljr-helm
     :pin melpa))
 
-(provide 'ogimart-helm)
+(provide 'om-helm)

@@ -1,4 +1,4 @@
-;; ogimart-putils.el
+;; om-putils.el
 ;;
 ;; uses: company, flycheck, realgud, yaml-mode,
 ;;       restclient, whitespace, multi-term
@@ -55,4 +55,4 @@
             (if (string-match "\\.zsh$" buffer-file-name)
                 (sh-set-shell "zsh"))))
 
-(provide 'ogimart-putils)
+(provide 'om-putils)

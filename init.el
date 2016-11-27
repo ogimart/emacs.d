@@ -22,18 +22,18 @@
   (package-install 'use-package))
 
 ; my packages
-(require 'ogimart-core)        ;; core settings
-(require 'ogimart-look)        ;; solarized-theme, smart-mode-line, font
-(require 'ogimart-interactive) ;; interactive commands
-(require 'ogimart-helm)        ;; helm, helm-projectile, helm-ag, helm-mt
-(require 'ogimart-project)     ;; projectile, project-explorer, magit
-(require 'ogimart-putils)      ;; company, flycheck, realgud, multi-term ...
-(require 'ogimart-lisp)        ;; slime, slime-company
-(require 'ogimart-clojure)     ;; clojure-mode, cider
-(require 'ogimart-python)      ;; company-jedi, virtualenvwrapper
-(require 'ogimart-psql)        ;; sql
-(require 'ogimart-eshell)      ;; eshell
-(require 'ogimart-java)        ;; eclim, company-emacs-eclim
+(require 'om-core)        ;; core settings
+(require 'om-look)        ;; solarized-theme, smart-mode-line, font
+(require 'om-interactive) ;; interactive commands
+(require 'om-helm)        ;; helm, helm-projectile, helm-ag, helm-mt
+(require 'om-project)     ;; projectile, project-explorer, magit
+(require 'om-putils)      ;; company, flycheck, realgud, multi-term ...
+(require 'om-lisp)        ;; slime, slime-company
+(require 'om-clojure)     ;; clojure-mode, cider
+(require 'om-python)      ;; company-jedi, virtualenvwrapper
+(require 'om-psql)        ;; sql
+(require 'om-eshell)      ;; eshell
+(require 'om-java)        ;; eclim, company-emacs-eclim
 
 ;; custom set
 (setq custom-file "~/.emacs.d/custom.el")

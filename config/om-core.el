@@ -1,4 +1,4 @@
-;; ogimart-core.el
+;; om-core.el
 ;;
 ;; uses: ido, icomplete
 
@@ -63,4 +63,4 @@
       auto-save-default t          ; auto-save every buffer that visits a file
       )
 
-(provide 'ogimart-core)
+(provide 'om-core)

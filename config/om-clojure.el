@@ -1,4 +1,4 @@
-;; ogimart-clojure.el
+;; om-clojure.el
 ;;
 ;; uses: clojure-mode, cider
 
@@ -35,4 +35,4 @@
                 (yas-minor-mode 1)
                 (cljr-add-keybindings-with-prefix "C-c C-m")))))
 
-(provide 'ogimart-clojure)
+(provide 'om-clojure)

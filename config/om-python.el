@@ -1,4 +1,4 @@
-;; ogimart-python.el
+;; om-python.el
 ;;
 ;; uses: python-mode, company-jedi, virtualenvwrapper
 
@@ -75,4 +75,4 @@
       (setq-default mode-line-format
                     (cons '(:exec venv-current-name) mode-line-format)))))
 
-(provide 'ogimart-python)
+(provide 'om-python)

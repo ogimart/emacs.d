@@ -1,7 +1,6 @@
-;; ogimart-eshell
+;; om-eshell
 ;;
 ;; uses: eshell
-
 
 (use-package eshell
   :config
@@ -40,4 +39,4 @@
                (with-face "\n> ")))
             eshell-prompt-regexp (concat "^" (regexp-quote "> "))))))
 
-(provide 'ogimart-eshell)
+(provide 'om-eshell)

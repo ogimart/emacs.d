@@ -1,7 +1,6 @@
-;; ogimart-sql.el
+;; om-psql.el
 ;;
 ;; uses: sql
-
 
 ;; Postgres specific: create ~/.pgpass file in format:
 ;; host:port:db:user:password
@@ -11,9 +10,11 @@
   (progn
 
     (defun read-lines (file-name)
-      (with-temp-buffer
-        (insert-file-contents file-name)
-        (split-string (buffer-string) "\n" t)))
+      (if (file-exists-p "~/.pgpass")
+          (with-temp-buffer
+            (insert-file-contents file-name)
+            (split-string (buffer-string) "\n" t))
+        nil))
 
     (defun psql:connection-alist (pgpass)
       (let ((value) (i 0))
@@ -44,7 +45,7 @@
                                      (sql-connect
                                       (quote ,(car item))))))
                                sql-connection-alist)))
-       (funcall func))
+      (funcall func))
 
     (global-set-key (kbd "C-c q") 'psql:server-connect)
 
@@ -52,4 +53,4 @@
               (lambda ()
                 (toggle-truncate-lines t)))))
 
-(provide 'ogimart-psql)
+(provide 'om-psql)

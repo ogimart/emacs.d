@@ -1,4 +1,4 @@
-;; ogimart-project.el
+;; om-project.el
 ;;
 ;; uses: projectile, project-explorer, magit
 
@@ -25,4 +25,4 @@
   :pin melpa-stable
   :bind ("C-c g" . magit-status))
 
-(provide 'ogimart-project)
+(provide 'om-project)

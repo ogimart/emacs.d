@@ -1,4 +1,4 @@
-;; ogimart-look.el
+;; om-look.el
 ;;
 ;; uses: solarized-theme, smart-mode-line,
 ;;       highlight-numbers, highlight-quoted, paren-face
@@ -51,4 +51,4 @@
   :ensure t
   :pin melpa)
 
-(provide 'ogimart-look)
+(provide 'om-look)

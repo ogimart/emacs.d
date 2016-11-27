@@ -1,4 +1,4 @@
-;; ogimart-java.el
+;; om-java.el
 ;;
 ;; uses: eclim, company-emacs-eclim
 
@@ -19,4 +19,4 @@
     (after 'company
       (company-emacs-eclim-setup))))
 
-(provide 'ogimart-java)
+(provide 'om-java)

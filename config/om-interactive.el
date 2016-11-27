@@ -1,4 +1,4 @@
-;; ogimart-interactive.el
+;; om-interactive.el
 ;;
 ;; uses: god-mode
 
@@ -85,4 +85,4 @@
       (define-key isearch-mode-map (kbd "<escape>") 'god-mode-isearch-activate)
       (define-key god-mode-isearch-map (kbd "<escape>") 'gode-mode-isearch-disable))))
 
-(provide 'ogimart-interactive)
+(provide 'om-interactive)
