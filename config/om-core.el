@@ -12,13 +12,12 @@
 ;; turn off: tool bar, scroll bar, menu bar and splash screen
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
-;(menu-bar-mode 0)
 (setq inhibit-splash-screen t)
+(if (not (display-graphic-p))
+    (menu-bar-mode 0))
 
 ;; default frame size
-(setq default-frame-alist '(
-  (width . 120)
-  (height . 48)))
+(setq default-frame-alist '((width . 120) (height . 48)))
 
 ;; mac modifier keys - make Command as Meta, Option as Alt
 (when (eq system-type 'darwin)

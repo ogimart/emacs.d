@@ -29,9 +29,6 @@
     (indent-according-to-mode)))
 (global-set-key (kbd "M-o") 'open-previous-line)
 
-;; Autoindent open-*-lines
-(defvar newline-and-indent t)
-
 ;; move line up
 (defun move-line-up ()
   (interactive)
