@@ -34,6 +34,7 @@
 (require 'om-psql)        ;; sql
 (require 'om-eshell)      ;; eshell
 (require 'om-java)        ;; eclim, company-emacs-eclim
+(require 'om-orgtex)      ;; org-mode, auctex for LaTex
 
 ;; custom set
 (setq custom-file "~/.emacs.d/custom.el")

@@ -55,4 +55,6 @@
             (if (string-match "\\.zsh$" buffer-file-name)
                 (sh-set-shell "zsh"))))
 
+(add-hook 'prog-mode-hook 'linum-mode)
+
 (provide 'om-putils)
