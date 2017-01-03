@@ -22,7 +22,9 @@
     (set-face-attribute 'vertical-border
                         nil
                         :foreground "#6F6F6F")
-    (blink-cursor-mode 0)))
+    (blink-cursor-mode 0)
+    (set-cursor-color "white")
+    (set-mouse-color "white")))
 
 ;; mode line
 (use-package smart-mode-line
