@@ -7,7 +7,7 @@
 (setq ns-use-srgb-colorspace t)
 
 ;; font
-(set-default-font "Source Code Pro-13")
+(set-frame-font "-*-Source Code Pro-light-normal-normal-*-13-*-*-*-m-0-iso10646-1")
 
 (use-package noctilux-theme
   :ensure noctilux-theme
@@ -17,7 +17,9 @@
     (load-theme 'noctilux t)
     (set-face-attribute 'vertical-border
                         nil
-                        :foreground "#5f5f5f")
+                        :foreground "#5F5F5F")
+    (set-face-attribute 'show-paren-match-face nil
+                        :background "#5F5F5F")
     (blink-cursor-mode 0)
     (set-cursor-color "white")
     (set-mouse-color "white")))
