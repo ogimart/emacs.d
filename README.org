@@ -50,3 +50,51 @@ Create symbolic link for emacs.d and init.el:
 - Clojure
 - Python
 - Java (requires Eclips and eclim)
+** Custom Keybindings
+*** Global
+
+| Keybinding  | Description                |
+|-------------+----------------------------|
+| C-^         | Top join line              |
+| C-o         | Open next line             |
+| M-o         | Open previois line         |
+| M-p         | Move line up               |
+| M-n         | Move line down             |
+| C-x k       | Kill buffer without prompt |
+| M-[         | Previous buffer            |
+| M-]         | Next buffer                |
+| C-c <down>  | Move to window down        |
+| C-c <up>    | Move to window up          |
+| C-c <right> | Move to window left        |
+| C-c <left>  | Move to window right       |
+| <escape>    | God mode                   |
+| C-c a       | Helm silver searcher       |
+| C-c t       | Helm multi terminal        |
+| C-c g       | Magit status               |
+| C-c o       | Project explorer           |
+| C-c q       | PostgreSQL psql            |
+|-------------+----------------------------|
+
+*** Clojure Mode
+
+| Keybinding | Description         |
+|------------+---------------------|
+| C-c j      | CIDER jack-in       |
+| C-c C-m    | CLJ Refactor prefix |
+|------------+---------------------|
+
+
+*** Python Mode
+
+| Keybinding | Description                       |
+|------------+-----------------------------------|
+| C-c .      | Goto definition (jedi)            |
+| C-c ,      | Goto definition (jedi pop marker) |
+| C-c k      | Show documentation                |
+| C-c v      | Change virtual environment        |
+| C-c i      | iPython interpreter               |
+| C-c s      | Django shell plus                 |
+| C-c r      | Django runserver                  |
+| C-c C-t    | Insert ipdb trace                 |
+|------------+-----------------------------------|
+
