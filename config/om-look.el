@@ -7,21 +7,17 @@
 (setq ns-use-srgb-colorspace t)
 
 ;; font
-(set-default-font "Inconsolata-14")
+(set-default-font "Source Code Pro-13")
 
-(use-package zenburn-theme
-  :ensure zenburn-theme
+(use-package noctilux-theme
+  :ensure noctilux-theme
   :pin melpa
   :config
   (progn
-    (load-theme 'zenburn t)
-    (set-foreground-color "#D6D6D6")
-    (set-face-attribute 'show-paren-match-face nil
-                        :foreground "white smoke"
-                        :background "#6F6F6F")
+    (load-theme 'noctilux t)
     (set-face-attribute 'vertical-border
                         nil
-                        :foreground "#6F6F6F")
+                        :foreground "#5f5f5f")
     (blink-cursor-mode 0)
     (set-cursor-color "white")
     (set-mouse-color "white")))
