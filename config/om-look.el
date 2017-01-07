@@ -31,7 +31,7 @@
   :config
   (progn
     (setq sml/no-confirm-load-theme t)
-    (setq sml/theme 'respectful)
+    (setq sml/theme 'dark)
     (sml/setup)
     (setq visible-bell nil)
     (setq ring-bell-function
