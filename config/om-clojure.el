@@ -33,6 +33,6 @@
               (lambda ()
                 (clj-refactor-mode 1)
                 (yas-minor-mode 1)
-                (cljr-add-keybindings-with-prefix "C-c C-m")))))
+                (local-set-key (kbd "C-c C-r") 'cljr-helm)))))
 
 (provide 'om-clojure)

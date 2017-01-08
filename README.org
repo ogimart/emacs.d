@@ -1,11 +1,7 @@
 * Emacs 25 Configuration
-
 ** Installatiion
-
 *** OS X
-
 **** Install Emacs
-
 Install Emacs Mac Port with homebrew:
 
 #+BEGIN_SRC bash
@@ -21,7 +17,6 @@ Create aliases in shell profile file such as ~.bash_profile~:
 #+END_SRC
 
 **** Config Emacs
-
 Clone repository:
 
 #+BEGIN_SRC bash
@@ -37,22 +32,18 @@ Create symbolic link for emacs.d and init.el:
 #+END_SRC
 
 ** Major Packages Used
-
 - Helm
 - Projectile
 - Magit
 - Company
 - Flycheck
-
 ** Programming Languages Supported
-
-- Common Lisp
 - Clojure
+- Common Lisp
 - Python
 - Java (requires Eclips and eclim)
 ** Custom Keybindings
 *** Global
-
 | Keybinding  | Description                |
 |-------------+----------------------------|
 | C-^         | Top join line              |
@@ -74,18 +65,13 @@ Create symbolic link for emacs.d and init.el:
 | C-c o       | Project explorer           |
 | C-c q       | PostgreSQL psql            |
 |-------------+----------------------------|
-
 *** Clojure Mode
-
-| Keybinding | Description         |
-|------------+---------------------|
-| C-c j      | CIDER jack-in       |
-| C-c C-m    | CLJ Refactor prefix |
-|------------+---------------------|
-
-
+| Keybinding | Description       |
+|------------+-------------------|
+| C-c j      | CIDER jack-in     |
+| C-c C-r    | CLJ Refactor helm |
+|------------+-------------------|
 *** Python Mode
-
 | Keybinding | Description                       |
 |------------+-----------------------------------|
 | C-c .      | Goto definition (jedi)            |
