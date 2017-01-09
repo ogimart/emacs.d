@@ -20,7 +20,7 @@
 (defun lg-font ()
   (interactive)
   (set-frame-font
-   "-*-Source Code Pro-light-normal-normal-*-15-*-*-*-m-0-iso10646-1"))
+   "-*-Source Code Pro-light-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
 
 (sm-font)
 
