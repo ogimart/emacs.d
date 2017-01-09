@@ -15,12 +15,12 @@
 (defun md-font ()
   (interactive)
   (set-frame-font
-   "-*-Source Code Pro-light-normal-normal-*-13-*-*-*-m-0-iso10646-1"))
+   "-*-Source Code Pro-light-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
 
 (defun lg-font ()
   (interactive)
   (set-frame-font
-   "-*-Source Code Pro-light-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
+   "-*-Source Code Pro-light-normal-normal-*-16-*-*-*-m-0-iso10646-1"))
 
 (sm-font)
 

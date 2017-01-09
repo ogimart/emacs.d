@@ -32,16 +32,16 @@ Create symbolic link for emacs.d and init.el:
 #+END_SRC
 
 ** Major Packages Used
-- Helm
-- Projectile
-- Magit
-- Company
-- Flycheck
+- [[https://github.com/emacs-helm/helm]][Helm]
+- [[https://github.com/bbatsov/projectile]][Projectile]
+- [[https://magit.vc/]][Magit]
+- [[http://company-mode.github.io/]][Company]
+- [[http://www.flycheck.org/en/latest/]][Flycheck]
 ** Programming Languages Supported
-- Clojure
-- Common Lisp
-- Python
-- Java (requires Eclips and eclim)
+- Clojure ([[https://github.com/clojure-emacs/cider]][CIDER], [[https://github.com/clojure-emacs/clj-refactor.el]][clj-refactor])
+- Common Lisp ([[https://common-lisp.net/project/slime/]][SLIME])
+- Python ([[https://github.com/tkf/emacs-jedi]][Jedi])
+- Java ([[http://eclim.org/]][Eclim])
 ** Custom Keybindings
 *** Global
 | Keybinding  | Description                |
