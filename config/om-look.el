@@ -7,8 +7,24 @@
 (setq ns-use-srgb-colorspace t)
 
 ;; font
-(set-frame-font "-*-Source Code Pro-light-normal-normal-*-13-*-*-*-m-0-iso10646-1")
+(defun sm-font ()
+  (interactive)
+  (set-frame-font
+   "-*-Source Code Pro-light-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
 
+(defun md-font ()
+  (interactive)
+  (set-frame-font
+   "-*-Source Code Pro-light-normal-normal-*-13-*-*-*-m-0-iso10646-1"))
+
+(defun lg-font ()
+  (interactive)
+  (set-frame-font
+   "-*-Source Code Pro-light-normal-normal-*-15-*-*-*-m-0-iso10646-1"))
+
+(sm-font)
+
+;; color theme
 (use-package noctilux-theme
   :ensure noctilux-theme
   :pin melpa
@@ -39,6 +55,7 @@
             (invert-face 'mode-line)
             (run-with-timer 0.1 nil 'invert-face 'mode-line)))))
 
+;; highlight numbers and quotes, dim parentheses
 (use-package highlight-numbers
   :ensure t
   :pin melpa)
