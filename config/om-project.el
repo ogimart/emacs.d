@@ -13,7 +13,7 @@
 (use-package project-explorer
   :ensure project-explorer
   :pin melpa-stable
-  :bind ("C-c o" . project-explorer-open)
+  :bind ("C-x p" . project-explorer-open)
   :config
   (progn
     (setq pe/cache-directory "~/.emacs.d/cache/project_explorer")
@@ -23,6 +23,6 @@
 (use-package magit
   :ensure magit
   :pin melpa-stable
-  :bind ("C-c g" . magit-status))
+  :bind ("C-x g" . magit-status))
 
 (provide 'om-project)

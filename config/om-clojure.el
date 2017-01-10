@@ -10,7 +10,6 @@
     (add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
     (add-hook 'clojure-mode-hook 'highlight-numbers-mode)
     (add-hook 'clojure-mode-hook 'highlight-quoted-mode)
-    (add-hook 'clojure-mode-hook 'paren-face-mode)
     (add-hook 'clojure-mode-hook 'aggressive-indent-mode)))
 
 (use-package cider

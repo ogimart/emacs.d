@@ -27,10 +27,14 @@
 (use-package helm-ag
   :ensure helm-ag
   :pin melpa-stable
-  :bind ("C-c a" . helm-ag)
+  :bind (("C-x a d" . helm-do-ag)
+         ("C-x a f" . helm-do-ag-this-file)
+         ("C-x a b" . helm-do-ag-buffers)
+         ("C-x a p" . helm-do-ag-project-root))
   :config
   (custom-set-variables
-   '(helm-ag-insert-at-point 'symbol)))
+   '(helm-ag-insert-at-point 'symbol)
+   '(helm-ag-fuzzy-match t)))
 
 (after 'multi-term
   (use-package helm-mt

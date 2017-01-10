@@ -29,14 +29,12 @@
   (add-hook 'lisp-mode-hook 'turn-on-eldoc-mode)
   (add-hook 'lisp-mode-hook 'highlight-numbers-mode)
   (add-hook 'lisp-mode-hook 'highlight-quoted-mode)
-  (add-hook 'lisp-mode-hook 'paren-face-mode)
   (add-hook 'lisp-mode-hook 'aggressive-indent-mode))
 
 (use-package emacs-lisp
   :init
   (add-hook 'emacs-lisp-mode-hook 'highlight-numbers-mode)
   (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
-  (add-hook 'emacs-lisp-mode-hook 'paren-face-mode)
   (add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode))
 
 (provide 'om-lisp)

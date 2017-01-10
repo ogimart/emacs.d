@@ -44,27 +44,30 @@ Create symbolic link for emacs.d and init.el:
 - Java ([[http://eclim.org/][Eclim]])
 ** Custom Keybindings
 *** Global
-| Keybinding  | Description                |
-|-------------+----------------------------|
-| C-^         | Top join line              |
-| C-o         | Open next line             |
-| M-o         | Open previois line         |
-| M-p         | Move line up               |
-| M-n         | Move line down             |
-| C-x k       | Kill buffer without prompt |
-| M-[         | Previous buffer            |
-| M-]         | Next buffer                |
-| C-c <down>  | Move to window down        |
-| C-c <up>    | Move to window up          |
-| C-c <right> | Move to window left        |
-| C-c <left>  | Move to window right       |
-| <escape>    | God mode                   |
-| C-c a       | Helm silver searcher       |
-| C-c t       | Helm multi terminal        |
-| C-c g       | Magit status               |
-| C-c o       | Project explorer           |
-| C-c q       | PostgreSQL psql            |
-|-------------+----------------------------|
+| Keybinding  | Description                     |
+|-------------+---------------------------------|
+| C-^         | Top join line                   |
+| C-o         | Open next line                  |
+| M-o         | Open previois line              |
+| M-p         | Move line up                    |
+| M-n         | Move line down                  |
+| M-[         | Previous buffer                 |
+| M-]         | Next buffer                     |
+| C-c <down>  | Move to window down             |
+| C-c <up>    | Move to window up               |
+| C-c <right> | Move to window left             |
+| C-c <left>  | Move to window right            |
+| C-c q       | PostgreSQL psql                 |
+| C-c t       | Helm multi terminal             |
+| C-x k       | Kill buffer without prompt      |
+| C-x g       | Magit status                    |
+| C-x p       | Project explorer                |
+| C-x a d     | Helm do ag on current directory |
+| C-x a f     | Helm do ag on current file      |
+| C-x a b     | Helm do ag on all buffers       |
+| C-x a p     | Helm do ag on project root      |
+| <escape>    | God mode                        |
+|-------------+---------------------------------|
 *** Clojure Mode
 | Keybinding | Description       |
 |------------+-------------------|

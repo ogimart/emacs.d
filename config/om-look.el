@@ -1,7 +1,7 @@
 ;; om-look.el
 ;;
 ;; uses: solarized-theme, smart-mode-line,
-;;       highlight-numbers, highlight-quoted, paren-face
+;;       highlight-numbers, highlight-quoted
 
 ;; srgb colors
 (setq ns-use-srgb-colorspace t)
@@ -15,12 +15,12 @@
 (defun md-font ()
   (interactive)
   (set-frame-font
-   "-*-Source Code Pro-light-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
+   "-*-Source Code Pro-light-normal-normal-*-13-*-*-*-m-0-iso10646-1"))
 
 (defun lg-font ()
   (interactive)
   (set-frame-font
-   "-*-Source Code Pro-light-normal-normal-*-16-*-*-*-m-0-iso10646-1"))
+   "-*-Source Code Pro-light-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
 
 (sm-font)
 
@@ -61,10 +61,6 @@
   :pin melpa)
 
 (use-package highlight-quoted
-  :ensure t
-  :pin melpa)
-
-(use-package paren-face
   :ensure t
   :pin melpa)
 
