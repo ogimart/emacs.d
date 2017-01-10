@@ -75,15 +75,16 @@ Create symbolic link for emacs.d and init.el:
 | C-c C-r    | CLJ Refactor helm |
 |------------+-------------------|
 *** Python Mode
-| Keybinding | Description                       |
-|------------+-----------------------------------|
-| C-c .      | Goto definition (jedi)            |
-| C-c ,      | Goto definition (jedi pop marker) |
-| C-c k      | Show documentation                |
-| C-c v      | Change virtual environment        |
-| C-c i      | iPython interpreter               |
-| C-c s      | Django shell plus                 |
-| C-c r      | Django runserver                  |
-| C-c C-t    | Insert ipdb trace                 |
-|------------+-----------------------------------|
+| Keybinding | Description                |
+|------------+----------------------------|
+| C-c .      | Jedi goto definition       |
+| C-c ,      | Jedi pop marker            |
+| C-c r      | Helm jedi related names    |
+| C-c k      | Show documentation         |
+| C-c v      | Change virtual environment |
+| C-c i      | iPython interpreter        |
+| C-c s      | Django shell plus          |
+| C-c d      | Django runserver           |
+| C-c C-t    | Insert ipdb trace          |
+|------------+----------------------------|
 

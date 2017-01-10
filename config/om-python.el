@@ -42,7 +42,7 @@
               '(lambda ()
                  (local-set-key (kbd "C-c i")   'ipython-interpeter)
                  (local-set-key (kbd "C-c s")   'django-shell-plus)
-                 (local-set-key (kbd "C-c r")   'django-runserver)
+                 (local-set-key (kbd "C-c d")   'django-runserver)
                  (local-set-key (kbd "C-c C-t") 'ipdb:insert-trace)))))
 
 (use-package company-jedi
@@ -60,6 +60,7 @@
                 '(lambda ()
                    (local-set-key (kbd "C-c .") 'jedi:goto-definition)
                    (local-set-key (kbd "C-c ,") 'jedi:goto-definition-pop-marker)
+                   (local-set-key (kbd "C-c r") 'helm-jedi-related-names)
                    (local-set-key (kbd "C-c k") 'jedi:show-doc))))))
 
 (use-package virtualenvwrapper
