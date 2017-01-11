@@ -61,7 +61,8 @@
                    (local-set-key (kbd "C-c .") 'jedi:goto-definition)
                    (local-set-key (kbd "C-c ,") 'jedi:goto-definition-pop-marker)
                    (local-set-key (kbd "C-c r") 'helm-jedi-related-names)
-                   (local-set-key (kbd "C-c k") 'jedi:show-doc))))))
+                   (local-set-key (kbd "C-c k") 'jedi:show-doc)
+                   (local-set-key (kbd "C-c /") 'jedi:get-in-function-call))))))
 
 (use-package virtualenvwrapper
   :ensure t

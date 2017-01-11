@@ -1,7 +1,8 @@
 ;; om-putils.el
 ;;
 ;; uses: company, flycheck, realgud, yaml-mode,
-;;       restclient, whitespace, multi-term
+;;       restclient, company-restclient, whitespace,
+;;       multi-term
 
 (use-package company
   :ensure t
@@ -28,7 +29,15 @@
 (use-package restclient
   :ensure t
   :pin melpa
-  :config (add-to-list 'auto-mode-alist '("\.rest$" . restclient-mode)))
+  :config
+  (add-to-list 'auto-mode-alist '("\.rest$" . restclient-mode)))
+
+(use-package company-restclient
+  :ensure t
+  :pin melpa
+  :config
+  (after 'company
+    (add-to-list 'company-backends 'company-restclient)))
 
 (use-package whitespace
   :init
