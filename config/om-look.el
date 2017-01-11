@@ -22,7 +22,7 @@
   (set-frame-font
    "-*-Source Code Pro-light-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
 
-(sm-font)
+(md-font)
 
 ;; color theme
 (use-package noctilux-theme

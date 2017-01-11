@@ -62,6 +62,7 @@ Create symbolic link for emacs.d and init.el:
 | C-x k       | Kill buffer without prompt      |
 | C-x g       | Magit status                    |
 | C-x p       | Project explorer                |
+| C-x c       | Company complete                |
 | C-x a d     | Helm do ag on current directory |
 | C-x a f     | Helm do ag on current file      |
 | C-x a b     | Helm do ag on all buffers       |

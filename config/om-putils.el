@@ -7,6 +7,7 @@
 (use-package company
   :ensure t
   :pin melpa-stable
+  :bind ("C-x c" . company-complete)
   :init (global-company-mode))
 
 (use-package flycheck
