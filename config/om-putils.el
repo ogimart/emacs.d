@@ -2,7 +2,7 @@
 ;;
 ;; uses: company, flycheck, realgud, yaml-mode,
 ;;       restclient, company-restclient, whitespace,
-;;       multi-term
+;;       multi-term, dockerfile-mode
 
 (use-package company
   :ensure t
@@ -58,6 +58,12 @@
               (setq term-buffer-maximum-size 10000)
               (add-to-list 'term-bind-key-alist '("M-[" . multi-term-prev))
               (add-to-list 'term-bind-key-alist '("M-]" . multi-term-next)))))
+
+(use-package dockerfile-mode
+  :ensure t
+  :pin melpa-stable
+  :config
+  (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode)))
 
 (add-to-list 'auto-mode-alist '("\\.zsh$'" . sh-mode))
 (add-hook 'sh-mode-hook
