@@ -29,14 +29,10 @@
   :pin melpa-stable
   :defer t
   :config
-  (progn
-    ;; (setq cljr-suppress-middleware-warnings t)
-    (add-hook 'clojure-mode-hook
-              (lambda ()
-                (clj-refactor-mode 1)
-                (yas-minor-mode 1)))
-                ;; (local-set-key (kbd "C-c C-r") 'cljr-helm)))
-    ))
+  (add-hook 'clojure-mode-hook
+            (lambda ()
+              (clj-refactor-mode 1)
+              (yas-minor-mode 1))))
 
 (use-package slime
   :ensure t
@@ -44,18 +40,8 @@
   :config
   (progn
     (setq inferior-lisp-program "/usr/local/bin/sbcl")
-    (setq slime-contribs '(slime-fancy))
-    ;; (setq slime-lisp-implementations
-    ;;       `((sbcl ("/usr/local/bin/sbcl"))
-    ;;         (ccl ("/usr/local/bin/ccl64"))
-    ;;         (cmucl ("/usr/local/bin/lisp"))
-    ;;         (clisp ("/usr/local/bin/clisp"))))
-
-    ;; (when (file-accessible-directory-p "~/quicklisp")
-    ;;   ;; (add-to-list 'load-path "~/quicklisp/dists/quicklisp/software/slime-2.14")
-    ;;   (load "~/quicklisp/slime-helper.el")
-    ;;   (setq slime-contribs '(slime-fancy))))
-    ))
+    ;; (load "~/quicklisp/slime-helper.el")
+    (setq slime-contribs '(slime-fancy))))
 
 (use-package slime-company
   :ensure t
