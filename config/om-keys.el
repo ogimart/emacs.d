@@ -1,6 +1,6 @@
-;; om-interactive.el
+;; om-keys.el
 ;;
-;; uses: god-mode
+;; keywords: keys, interactive
 
 ;; join the current line with the line beneath it
 (defun top-join-line ()
@@ -47,9 +47,6 @@
 ;; kill buffer without prompt
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 
-;; use tab for indent or complete
-(setq tab-always-indent 'complete)
-
 ;; switch buffers
 (global-set-key (kbd "M-[") 'previous-buffer)
 (global-set-key (kbd "M-]") 'next-buffer)
@@ -61,25 +58,4 @@
 (global-set-key (kbd "C-c <left>") 'windmove-left)
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 
-(use-package god-mode
-  :ensure god-mode
-  :pin melpa
-  :bind ("<escape>" . god-mode-all)
-  :config
-  (progn
-    (define-key god-local-mode-map (kbd "z") 'repeat)
-    (defun god-update-cursor ()
-      (setq cursor-type
-            (if (or god-local-mode buffer-read-only)
-                'hollow 'box)))
-    (add-hook 'god-mode-enabled-hook 'god-update-cursor)
-    (add-hook 'god-mode-disabled-hook 'god-update-cursor)))
-
-(after 'god-mode
-  (use-package god-mode-isearch
-    :config
-    (progn
-      (define-key isearch-mode-map (kbd "<escape>") 'god-mode-isearch-activate)
-      (define-key god-mode-isearch-map (kbd "<escape>") 'gode-mode-isearch-disable))))
-
-(provide 'om-interactive)
+(provide 'om-keys)

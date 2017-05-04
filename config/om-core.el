@@ -1,65 +1,92 @@
 ;; om-core.el
 ;;
-;; uses: ido, icomplete
-
-;; after macro
-(defmacro after (feature &rest body)
-  "After FEATURE is loaded, evaluate BODY."
-  (declare (indent defun))
-  `(eval-after-load ,feature
-     '(progn ,@body)))
-
-;; turn off: tool bar, scroll bar, menu bar and splash screen
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
-(setq inhibit-splash-screen t)
-(if (not (display-graphic-p))
-    (menu-bar-mode 0))
-
-;; default frame size
-(setq default-frame-alist '((width . 120) (height . 48)))
-
-;; mac modifier keys - make Command as Meta, Option as Alt
-(when (eq system-type 'darwin)
-  (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier 'meta))
-
-;; take the short answer y/n is yes/no
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-;; tabs (spaces only)
-(setq-default indent-tabs-mode nil)
-
-;; line and column numbers
-(setq line-number-mode t)
-(setq column-number-mode t)
-
-;; use ibuffer for list buffers
-(defalias 'list-buffers 'ibuffer)
-
-;; show matching parentheses
-(show-paren-mode 1)
-(defvar show-paren-delay 0)
+;; keywords: ido, flx-ido, fuzzy, indent
+;;           mode line, font, highlight
 
 ;; interactively do things
 (use-package ido
-  :config (ido-mode t))
-(use-package icomplete)
+  :config
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  (setq ido-use-virtual-buffers t)
+  (ido-mode t))
 
-;; follow symbolic links
-(setq vc-follow-symlinks t)
+;; flex ido
+(use-package flx-ido
+  :ensure flx-ido
+  :pin melpa-stable
+  :init (flx-ido-mode 1))
 
-;; backup
-(defvar --backup-dir (concat user-emacs-directory "backups"))
-(if (not (file-exists-p --backup-dir))
-        (make-directory --backup-dir t))
-(setq backup-directory-alist `(("." . ,--backup-dir)))
-(setq make-backup-files t          ; backup of a file the first time it is saved
-      backup-by-copying t          ; copy
-      version-control t            ; version numbers for backup files
-      delete-old-versions t        ; delete excess backup files silently
-      delete-by-moving-to-trash t  ; move to trash
-      auto-save-default t          ; auto-save every buffer that visits a file
-      )
+;; white space
+(use-package whitespace
+  :init
+  (add-hook 'prog-mode-hook 'whitespace-mode)
+  :config
+  (setq-default whitespace-line-column 100
+                whitespace-style '(face lines-tail trailing))
+  :diminish whitespace-mode)
+
+;; indentation
+(use-package aggressive-indent
+  :ensure t
+  :defer t
+  :pin melpa)
+
+;; srgb colors
+(setq ns-use-srgb-colorspace t)
+
+;; font
+(defun sm-font ()
+  (interactive)
+  (set-frame-font
+   "-*-Source Code Pro-light-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
+(defun md-font ()
+  (interactive)
+  (set-frame-font
+   "-*-Source Code Pro-light-normal-normal-*-13-*-*-*-m-0-iso10646-1"))
+(defun lg-font ()
+  (interactive)
+  (set-frame-font
+   "-*-Source Code Pro-light-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
+(md-font)
+
+(use-package noctilux-theme
+  :ensure noctilux-theme
+  :pin melpa
+  :config
+  (progn
+    (load-theme 'noctilux t)
+    (set-face-attribute 'vertical-border
+                        nil
+                        :foreground "#5F5F5F")
+    (set-face-attribute 'show-paren-match-face nil
+                        :background "#5F5F5F")
+    (blink-cursor-mode 0)
+    (set-cursor-color "white")
+    (set-mouse-color "white")))
+
+;; mode line
+(use-package smart-mode-line
+  :ensure t
+  :pin melpa
+  :config
+  (progn
+    (setq sml/no-confirm-load-theme t)
+    (setq sml/theme 'dark)
+    (sml/setup)
+    (setq visible-bell nil)
+    (setq ring-bell-function
+          (lambda ()
+            (invert-face 'mode-line)
+            (run-with-timer 0.1 nil 'invert-face 'mode-line)))))
+
+;; highlight numbers and quotes
+(use-package highlight-numbers
+  :ensure t
+  :pin melpa)
+
+(use-package highlight-quoted
+  :ensure t
+  :pin melpa)
 
 (provide 'om-core)

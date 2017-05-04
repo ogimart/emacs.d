@@ -32,7 +32,6 @@ Create symbolic link for emacs.d and init.el:
 #+END_SRC
 
 ** Major Packages Used
-- [[https://github.com/emacs-helm/helm][Helm]]
 - [[https://github.com/bbatsov/projectile][Projectile]]
 - [[https://magit.vc/][Magit]]
 - [[http://company-mode.github.io/][Company]]
@@ -41,7 +40,6 @@ Create symbolic link for emacs.d and init.el:
 - Clojure ([[https://github.com/clojure-emacs/cider][CIDER]], [[https://github.com/clojure-emacs/clj-refactor.el][clj-refactor]])
 - Common Lisp ([[https://common-lisp.net/project/slime/][SLIME]])
 - Python ([[https://github.com/tkf/emacs-jedi][Jedi]])
-- Java ([[http://eclim.org/][Eclim]])
 ** Custom Keybindings
 *** Global
 | Keybinding  | Description                     |
@@ -58,30 +56,21 @@ Create symbolic link for emacs.d and init.el:
 | C-c <right> | Move to window left             |
 | C-c <left>  | Move to window right            |
 | C-c q       | PostgreSQL psql                 |
-| C-c t       | Helm multi terminal             |
 | C-x k       | Kill buffer without prompt      |
 | C-x g       | Magit status                    |
 | C-x p       | Project explorer                |
 | C-x c       | Company complete                |
-| C-x a d     | Helm do ag on current directory |
-| C-x a f     | Helm do ag on current file      |
-| C-x a b     | Helm do ag on all buffers       |
-| C-x a p     | Helm do ag on project root      |
-| <escape>    | God mode                        |
 |-------------+---------------------------------|
-|             |                                 |
 *** Clojure Mode
 | Keybinding | Description       |
 |------------+-------------------|
 | C-c j      | CIDER jack-in     |
-| C-c C-r    | CLJ Refactor helm |
 |------------+-------------------|
 *** Python Mode
 | Keybinding | Description                |
 |------------+----------------------------|
 | C-c .      | Jedi goto definition       |
 | C-c ,      | Jedi pop marker            |
-| C-c r      | Helm jedi related names    |
 | C-c k      | Show documentation         |
 | C-c /      | Jedi function signature    |
 | C-c v      | Change virtual environment |

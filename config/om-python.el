@@ -1,13 +1,18 @@
 ;; om-python.el
 ;;
-;; uses: python-mode, company-jedi, virtualenvwrapper
+;; keywords: python-mode, company-jedi, virtualenvwrapper
 
 (use-package python
+  :bind (:map python-mode-map
+              ("C-c i" . ipython-interpreter)
+              ("C-c d" . django-runserver)
+              ("C-c s" . django-shell-plus)
+              ("C-c C-t" . ipdb:insert-trace))
   :config
   (progn
     (setq python-shell-interpreter "ipython")
 
-    (defun ipython-interpeter ()
+    (defun ipython-interpreter ()
       (interactive)
       (setq python-shell-interpreter "ipython")
       (message "interpreter: ipython"))
@@ -37,37 +42,30 @@
 
     (add-hook 'python-mode-hook 'flycheck-mode)
     (add-hook 'python-mode-hook 'turn-on-eldoc-mode)
-    (add-hook 'python-mode-hook 'aggressive-indent-mode)
-    (add-hook 'python-mode-hook
-              '(lambda ()
-                 (local-set-key (kbd "C-c i")   'ipython-interpeter)
-                 (local-set-key (kbd "C-c s")   'django-shell-plus)
-                 (local-set-key (kbd "C-c d")   'django-runserver)
-                 (local-set-key (kbd "C-c C-t") 'ipdb:insert-trace)))))
+    (add-hook 'python-mode-hook 'aggressive-indent-mode)))
 
 (use-package company-jedi
   :ensure t
   :pin melpa
+  :bind (:map python-mode-map
+              ("C-c ." . jedi:goto-definition)
+              ("C-c ," . jedi:goto-definition-pop-marker)
+              ;; ("C-c r" . helm-jedi-related-names)
+              ("C-c k" . jedi:show-doc)
+              ("C-c /" . jedi:get-in-function-call))
   :config
   (progn
     (after 'python
       (add-hook 'python-mode-hook
                 (lambda ()
                   (add-to-list 'company-backends 'company-jedi)))
-      (setq jedi:complete-on-dot t)
-
-      (add-hook 'python-mode-hook
-                '(lambda ()
-                   (local-set-key (kbd "C-c .") 'jedi:goto-definition)
-                   (local-set-key (kbd "C-c ,") 'jedi:goto-definition-pop-marker)
-                   (local-set-key (kbd "C-c r") 'helm-jedi-related-names)
-                   (local-set-key (kbd "C-c k") 'jedi:show-doc)
-                   (local-set-key (kbd "C-c /") 'jedi:get-in-function-call))))))
+      (setq jedi:complete-on-dot t))))
 
 (use-package virtualenvwrapper
   :ensure t
   :pin melpa
-  :bind ("C-c v" . venv-workon)
+  :bind (:map python-mode-map
+              ("C-c v" . venv-workon))
   :config
   (progn
     (after 'python

@@ -1,24 +1,23 @@
 ;; om-orgmode.el
 ;;
-;; uses: org-bullets
+;; keywords: org-mode, tex, auctex
 
-(use-package org-bullets
-  :ensure t
-  :pin  melpa
+(use-package org
+  :bind (("C-c a" . org-agenda)
+         ("C-c c" . org-capture)
+         ("C-c l" . org-store-link))
   :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  (setq org-bullets-bullet-list '("⊚" "⊙" "○" "◎" "●" "◦"))
-  ;; (setq org-ellipsis " ↴")
-  )
-
-(use-package stripe-buffer
-  :ensure t
-  :pin melpa
-  :config
-  (add-hook 'org-mode-hook 'turn-on-stripe-table-mode))
+  (setq org-agenda-files '("~/org/"))
+  (setq org-log-done t)
+  (setq org-todo-keywords
+        '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
+  (setq org-capture-templates
+        '(("t" "todo" entry (file+headline "~/org/todo.org" "Tasks")
+           "* TODO [#A] %?"))))
 
 (use-package tex
   :ensure auctex
+  :defer t
   :pin gnu
   :config
   (setq TeX-auto-save t)
