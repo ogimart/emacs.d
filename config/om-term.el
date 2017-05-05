@@ -41,39 +41,25 @@
 ;; eshell prompt
 (use-package eshell
   :defer t
+  :bind ("C-c e" . eshell)
   :config
-  (progn
 
-    (defmacro with-face (str &rest properties)
-      `(propertize ,str 'face (list ,@properties)))
+  (defmacro with-face (str &rest properties)
+    `(propertize ,str 'face (list ,@properties)))
 
-    (after 'projectile
-
-      (defun eshell/git-branch ()
-        (if (executable-find "git")
-            (let ((branch (car
-                           (split-string
-                            (shell-command-to-string
-                             "git rev-parse --abbrev-ref HEAD") "\n"))))
-              (if (string= (car (split-string branch ":")) "fatal")
-                  "" (concat " [" branch "]")))
-          ""))
-
-      (setq eshell-prompt-function
-            (lambda ()
-              (concat "\n"
-                      (with-face (concat "[" (eshell/pwd) "]")
-                                 :foreground "#268bd2")
-                      (with-face (eshell/git-branch)
-                                 :foreground "#6c71c4")
-                      (with-face "\n> ")))
-            eshell-prompt-regexp (concat "^" (regexp-quote "> "))))))
+  (setq eshell-prompt-function
+        (lambda ()
+          (concat "\n"
+                  (with-face (concat "[" (eshell/pwd) "]")
+                             :foreground "#aaffaa")
+                  (with-face "\n> ")))
+        eshell-prompt-regexp (concat "^" (regexp-quote "> "))))
 
 ;; zsh term
 (use-package multi-term
   :ensure t
   :pin melpa
-  :defer t
+  :bind ("C-c m" . multi-term)
   :config
   (setq multi-term-program "/bin/zsh")
   (add-hook 'term-mode-hook

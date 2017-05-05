@@ -45,25 +45,27 @@ Create symbolic link for emacs.d and init.el:
 - [[http://company-mode.github.io/][Company]]
 ** Custom Keybindings
 *** Global
-| Keybinding  | Description                     |
-|-------------+---------------------------------|
-| C-^         | Top join line                   |
-| C-o         | Open next line                  |
-| M-o         | Open previois line              |
-| M-p         | Move line up                    |
-| M-n         | Move line down                  |
-| M-[         | Previous buffer                 |
-| M-]         | Next buffer                     |
-| C-c <down>  | Move to window down             |
-| C-c <up>    | Move to window up               |
-| C-c <right> | Move to window left             |
-| C-c <left>  | Move to window right            |
-| C-c q       | PostgreSQL psql                 |
-| C-x k       | Kill buffer without prompt      |
-| C-x g       | Magit status                    |
-| C-x p       | Project explorer                |
-| C-x c       | Company complete                |
-|-------------+---------------------------------|
+| Keybinding  | Description                |
+|-------------+----------------------------|
+| C-^         | Top join line              |
+| C-o         | Open next line             |
+| M-o         | Open previois line         |
+| M-p         | Move line up               |
+| M-n         | Move line down             |
+| M-[         | Previous buffer            |
+| M-]         | Next buffer                |
+| C-c <down>  | Move to window down        |
+| C-c <up>    | Move to window up          |
+| C-c <right> | Move to window left        |
+| C-c <left>  | Move to window right       |
+| C-c e       | Emacs eshell               |
+| C-c m       | Multi term Zsh             |
+| C-c q       | PostgreSQL psql            |
+| C-x k       | Kill buffer without prompt |
+| C-x g       | Magit status               |
+| C-x p       | Project explorer           |
+| C-x c       | Company complete           |
+|-------------+----------------------------|
 *** Clojure Mode
 | Keybinding | Description       |
 |------------+-------------------|

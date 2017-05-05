@@ -54,6 +54,9 @@
 ;; follow symbolic links
 (setq vc-follow-symlinks t)
 
+;; remote files
+(setq tramp-default-method "ssh")
+
 ;; my packages
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 (require 'om-core)     ;; ido, theme, mode line, font, indent
