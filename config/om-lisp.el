@@ -37,19 +37,17 @@
 (use-package slime
   :ensure t
   :pin melpa-stable
+  :defer t
   :config
-  (progn
-    (setq inferior-lisp-program "/usr/local/bin/sbcl")
-    ;; (load "~/quicklisp/slime-helper.el")
-    (setq slime-contribs '(slime-fancy))))
-
-(use-package slime-company
-  :ensure t
-  :pin melpa-stable
-  :config
-  (progn
-    (after 'slime
-      (slime-setup '(slime-company)))))
+  (setq inferior-lisp-program "/usr/local/bin/sbcl")
+  ;; (load "~/quicklisp/slime-helper.el")
+  (use-package slime-company
+    :ensure t
+    :pin melpa-stable
+    :config (after 'slime (slime-setup '(slime-company))))
+  (add-to-list 'slime-contribs 'slime-repl)
+  (add-to-list 'slime-contribs 'slime-autodoc)
+  (add-to-list 'slime-contribs 'slime-fancy))
 
 (use-package lisp-mode
   :init

@@ -3,19 +3,19 @@
 ;; keywords: ido, flx-ido, fuzzy, indent
 ;;           mode line, font, highlight
 
-;; interactively do things
-(use-package ido
-  :config
-  (setq ido-enable-flex-matching t)
-  (setq ido-everywhere t)
-  (setq ido-use-virtual-buffers t)
-  (ido-mode t))
+;; fuzzy search
+(use-package flx
+  :ensure t
+  :defer t
+  :pin melpa)
 
-;; flex ido
-(use-package flx-ido
-  :ensure flx-ido
-  :pin melpa-stable
-  :init (flx-ido-mode 1))
+;; ivy
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode 1)
+  (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
+  (define-key ivy-minibuffer-map (kbd "C-m") 'ivy-alt-done))
 
 ;; white space
 (use-package whitespace

@@ -31,15 +31,18 @@ Create symbolic link for emacs.d and init.el:
   $ ./synlink-emacs-d
 #+END_SRC
 
-** Major Packages Used
+** Packages
+*** Core
 - [[https://github.com/bbatsov/projectile][Projectile]]
+- [[https://github.com/abo-abo/swiper][Ivy]]
 - [[https://magit.vc/][Magit]]
-- [[http://company-mode.github.io/][Company]]
-- [[http://www.flycheck.org/en/latest/][Flycheck]]
-** Programming Languages Supported
+*** Programming Languages
 - Clojure ([[https://github.com/clojure-emacs/cider][CIDER]], [[https://github.com/clojure-emacs/clj-refactor.el][clj-refactor]])
 - Common Lisp ([[https://common-lisp.net/project/slime/][SLIME]])
 - Python ([[https://github.com/tkf/emacs-jedi][Jedi]])
+*** Other
+- [[http://www.flycheck.org/en/latest/][Flycheck]]
+- [[http://company-mode.github.io/][Company]]
 ** Custom Keybindings
 *** Global
 | Keybinding  | Description                     |

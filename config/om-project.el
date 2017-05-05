@@ -11,7 +11,9 @@
 (use-package projectile
   :ensure projectile
   :pin melpa-stable
-  :config (projectile-global-mode))
+  :config
+  (projectile-global-mode)
+  (setq projectile-completion-system 'ivy))
 
 (use-package project-explorer
   :ensure project-explorer

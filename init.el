@@ -1,5 +1,8 @@
 ;; init.el
 
+;; gc stops
+(setq gc-cons-threshold 100000000)
+
 ;; package sites
 (setq package-archives
       '(("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
