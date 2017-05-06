@@ -50,20 +50,10 @@
    "-*-Source Code Pro-light-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
 (md-font)
 
-(use-package noctilux-theme
-  :ensure noctilux-theme
+(use-package atom-one-dark-theme
+  :ensure t
   :pin melpa
-  :config
-  (progn
-    (load-theme 'noctilux t)
-    (set-face-attribute 'vertical-border
-                        nil
-                        :foreground "#5F5F5F")
-    (set-face-attribute 'show-paren-match-face nil
-                        :background "#5F5F5F")
-    (blink-cursor-mode 0)
-    (set-cursor-color "white")
-    (set-mouse-color "white")))
+  :init (load-theme 'atom-one-dark t))
 
 ;; mode line
 (use-package smart-mode-line
@@ -72,7 +62,7 @@
   :config
   (progn
     (setq sml/no-confirm-load-theme t)
-    (setq sml/theme 'dark)
+    (setq sml/theme 'respectful)
     (sml/setup)
     (setq visible-bell nil)
     (setq ring-bell-function
