@@ -48,12 +48,15 @@
   (interactive)
   (set-frame-font
    "-*-Source Code Pro-light-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
-(md-font)
+(sm-font)
 
 (use-package atom-one-dark-theme
   :ensure t
   :pin melpa
-  :init (load-theme 'atom-one-dark t))
+  :config
+  (if (not window-system)
+      (load-theme 'wombat t)
+    (load-theme 'atom-one-dark t)))
 
 ;; mode line
 (use-package smart-mode-line
