@@ -66,6 +66,12 @@ Create symbolic link for emacs.d and init.el:
 | C-x p       | Project explorer           |
 | C-x c       | Company complete           |
 |-------------+----------------------------|
+*** Org Mode
+| Keybinding | Description |
+|------------+-------------|
+| C-c a      | Org Agenda  |
+| C-c c      | Org Capture |
+|------------+-------------|
 *** Clojure Mode
 | Keybinding | Description       |
 |------------+-------------------|

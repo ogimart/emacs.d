@@ -38,9 +38,11 @@
 (setq ns-use-srgb-colorspace t)
 
 ;; font
-(defun sm-font () (interactive) (set-frame-font "Source Code Pro-12"))
+(defun xs-font () (interactive) (set-frame-font "Source Code Pro-12"))
+(defun sm-font () (interactive) (set-frame-font "Source Code Pro-13"))
 (defun md-font () (interactive) (set-frame-font "Source Code Pro-14"))
-(defun lg-font () (interactive) (set-frame-font "Source Code Pro-16"))
+(defun lg-font () (interactive) (set-frame-font "Source Code Pro-15"))
+(defun xl-font () (interactive) (set-frame-font "Source Code Pro-16"))
 (md-font)
 
 (use-package tangotango-theme
@@ -48,12 +50,19 @@
   :pin melpa
   :config
   (load-theme 'tangotango t)
-  (set-face-attribute 'show-paren-match-face nil
-                      :background "SteelBlue1")
+  (set-face-background 'fringe "#2e3434")
+  (set-face-foreground 'vertical-border "grey50")
+  (set-face-foreground 'font-lock-builtin-face "SkyBlue1")
+  (set-face-foreground 'font-lock-keyword-face "SkyBlue1")
+  (set-face-background 'show-paren-match-face "SkyBlue3")
+  (set-face-attribute 'font-lock-string-face nil
+                      :slant 'normal :foreground "#cbaec8")
   (set-cursor-color "DarkOrange")
   (blink-cursor-mode 1))
 
 (use-package powerline
+  :ensure t
+  :pin melpa-stable
   :config
   (powerline-default-theme)
   (setq visible-bell nil)

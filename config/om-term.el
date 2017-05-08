@@ -62,6 +62,8 @@
   :bind ("C-c m" . multi-term)
   :config
   (setq multi-term-program "/bin/zsh")
+  (set-face-foreground 'term-color-blue "SkyBlue1")
+  (set-face-foreground 'term-color-red "tomato")
   (add-hook 'term-mode-hook
             (lambda ()
               (setq term-buffer-maximum-size 10000)
