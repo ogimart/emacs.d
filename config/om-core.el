@@ -6,8 +6,7 @@
 ;; fuzzy search
 (use-package flx
   :ensure t
-  :defer t
-  :pin melpa)
+  :defer t)
 
 ;; ivy
 (use-package ivy
@@ -15,7 +14,10 @@
   :config
   (ivy-mode 1)
   (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
-  (define-key ivy-minibuffer-map (kbd "C-m") 'ivy-alt-done))
+  (define-key ivy-minibuffer-map (kbd "C-m") 'ivy-alt-done)
+  ;; (set-face-attribute 'ivy-current-match nil
+  ;;                     :background "SteelBlue2")
+  (setq ivy-format-function 'ivy-format-function-arrow))
 
 ;; white space
 (use-package whitespace
@@ -36,42 +38,29 @@
 (setq ns-use-srgb-colorspace t)
 
 ;; font
-(defun sm-font ()
-  (interactive)
-  (set-frame-font
-   "-*-Source Code Pro-light-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
-(defun md-font ()
-  (interactive)
-  (set-frame-font
-   "-*-Source Code Pro-light-normal-normal-*-13-*-*-*-m-0-iso10646-1"))
-(defun lg-font ()
-  (interactive)
-  (set-frame-font
-   "-*-Source Code Pro-light-normal-normal-*-14-*-*-*-m-0-iso10646-1"))
-(sm-font)
+(defun sm-font () (interactive) (set-frame-font "Source Code Pro-12"))
+(defun md-font () (interactive) (set-frame-font "Source Code Pro-14"))
+(defun lg-font () (interactive) (set-frame-font "Source Code Pro-16"))
+(md-font)
 
-(use-package atom-one-dark-theme
+(use-package tangotango-theme
   :ensure t
   :pin melpa
   :config
-  (if (not window-system)
-      (load-theme 'wombat t)
-    (load-theme 'atom-one-dark t)))
+  (load-theme 'eclipse t)
+  (set-face-attribute 'show-paren-match-face nil
+                      :background "SteelBlue1")
+  (set-cursor-color "DarkOrange")
+  (blink-cursor-mode 1))
 
-;; mode line
-(use-package smart-mode-line
-  :ensure t
-  :pin melpa
+(use-package powerline
   :config
-  (progn
-    (setq sml/no-confirm-load-theme t)
-    (setq sml/theme 'respectful)
-    (sml/setup)
-    (setq visible-bell nil)
-    (setq ring-bell-function
-          (lambda ()
-            (invert-face 'mode-line)
-            (run-with-timer 0.1 nil 'invert-face 'mode-line)))))
+  (powerline-default-theme)
+  (setq visible-bell nil)
+  (setq ring-bell-function
+        (lambda ()
+          (invert-face 'mode-line)
+          (run-with-timer 0.1 nil 'invert-face 'mode-line))))
 
 ;; highlight numbers and quotes
 (use-package highlight-numbers
@@ -81,5 +70,9 @@
 (use-package highlight-quoted
   :ensure t
   :pin melpa)
+
+(use-package paren-face
+  :ensure t
+  :pin melpa-stable)
 
 (provide 'om-core)

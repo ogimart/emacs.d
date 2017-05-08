@@ -5,11 +5,13 @@
 
 ;; package sites
 (setq package-archives
-      '(("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
+      '(
+        ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
         ("marmalade" . "http://marmalade-repo.org/packages/")
         ("gnu" . "https://elpa.gnu.org/packages/")
         ("org" . "http://orgmode.org/elpa/")
-        ("melpa" . "http://melpa.org/packages/")))
+        ("melpa" . "https://melpa.org/packages/")
+        ))
 
 ;; package init
 (require 'package)
