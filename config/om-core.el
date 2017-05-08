@@ -47,7 +47,7 @@
   :ensure t
   :pin melpa
   :config
-  (load-theme 'eclipse t)
+  (load-theme 'tangotango t)
   (set-face-attribute 'show-paren-match-face nil
                       :background "SteelBlue1")
   (set-cursor-color "DarkOrange")
