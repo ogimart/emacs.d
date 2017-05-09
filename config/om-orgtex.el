@@ -7,20 +7,35 @@
          ("C-c c" . org-capture)
          ("C-c l" . org-store-link))
   :config
-  ;; agenda
-  (setq org-agenda-files '("~/Dropbox/org/todo.org"
-                           "~/Dropbox/org/cognical.org"
-                           "~/Dropbox/org/home.org"
-                           "~/Dropbox/org/inforisk.org"
-                           "~/Dropbox/org/music.org"))
-  (setq org-refile-targets '((org-agenda-files :maxlevel . 1)))
+  ;; tasks
   (setq org-log-done t)
   (setq org-todo-keywords
         '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
+  ;; agenda
+  (setq org-directory "~/Dropbox/org")
+  (setq org-default-notes-file "notes.org")
+  (setq org-agenda-files `(,(concat org-directory "/cognical.org")
+                           ,(concat org-directory "/home.org")
+                           ,(concat org-directory "/inforisk.org")
+                           ,(concat org-directory "/music.org")))
+  (setq org-refile-targets '((nil :maxlevel . 1)
+                             (org-agenda-files :maxlevel . 1)))
   (setq org-capture-templates
-        '(("t" "todo" entry (file+headline "~/Dropbox/org/todo.org" "Capture")
-           "** TODO [#A] %?")))
-
+        '(("t" "todo"
+           entry (file+headline org-default-notes-file "Capture")
+           "** TODO [#A] %?\n")
+          ("w" "task"
+           entry (file+headline "cognical.org" "Tasks")
+           "** TODO [#A] %? :work:\n")
+          ("m" "meeting"
+           entry (file+headline "cognical.org" "Schedule")
+           "** Meeting with %? :meeting:\nSCHEDULED: %t" :scheduled t)
+          ("a" "appointment"
+           entry (file+headline "home.org" "Appointments")
+           "** %? Appointment :appointment:\nSCHEDULED: %t" :scheduled t)))
+  ;; mobile
+  (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+  (setq org-mobile-inbox-for-pull (concat org-directory "/mobile.org"))
   ;; look
   (defun org-levels-hook ()
     "Set org-level headers size"
