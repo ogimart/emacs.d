@@ -7,7 +7,7 @@
          ("C-c c" . org-capture)
          ("C-c l" . org-store-link))
   :config
-  (setq org-agenda-files '("~/org/"))
+  (setq org-agenda-files '("~/Dropbox/org/"))
   (setq org-log-done t)
   (setq org-todo-keywords
         '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))

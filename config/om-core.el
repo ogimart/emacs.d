@@ -65,6 +65,7 @@
   :pin melpa-stable
   :config
   (powerline-default-theme)
+  (set-face-background 'powerline-inactive2 "grey22")
   (setq visible-bell nil)
   (setq ring-bell-function
         (lambda ()
