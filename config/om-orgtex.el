@@ -7,14 +7,21 @@
          ("C-c c" . org-capture)
          ("C-c l" . org-store-link))
   :config
-  (setq org-agenda-files '("~/Dropbox/org/"))
+  ;; agenda
+  (setq org-agenda-files '("~/Dropbox/org/todo.org"
+                           "~/Dropbox/org/cognical.org"
+                           "~/Dropbox/org/home.org"
+                           "~/Dropbox/org/inforisk.org"
+                           "~/Dropbox/org/music.org"))
+  (setq org-refile-targets '((org-agenda-files :maxlevel . 1)))
   (setq org-log-done t)
   (setq org-todo-keywords
         '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
   (setq org-capture-templates
-        '(("t" "todo" entry (file+headline "~/org/todo.org" "Tasks")
+        '(("t" "todo" entry (file+headline "~/Dropbox/org/todo.org" "Capture")
            "** TODO [#A] %?")))
 
+  ;; look
   (defun org-levels-hook ()
     "Set org-level headers size"
     (dolist
