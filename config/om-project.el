@@ -20,15 +20,16 @@
   :pin melpa-stable
   :bind ("C-x p" . project-explorer-open)
   :config
-  (progn
-    (setq pe/cache-directory "~/.emacs.d/cache/project_explorer")
-    (setq pe/omit-regex
-          (concat pe/omit-regex "\\|.pyc" "\\|.class" "\\|.fasl"))))
+  (setq pe/cache-directory "~/.emacs.d/cache/project_explorer")
+  (setq pe/omit-regex
+        (concat pe/omit-regex "\\|.pyc" "\\|.class" "\\|.fasl")))
 
 (use-package magit
   :ensure magit
   :pin melpa-stable
-  :bind ("C-x g" . magit-status))
+  :bind ("C-x g" . magit-status)
+  :config
+  (setq magit-completing-read-function 'ivy-completing-read))
 
 (use-package flycheck
   :ensure t
@@ -44,21 +45,17 @@
 (use-package dockerfile-mode
   :ensure t
   :pin melpa-stable
-  :config
-  (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode)))
+  :mode ("Dockerfile\\'" . dockerfile-mode))
 
 (use-package yaml-mode
   :ensure t
-  :defer t
   :pin melpa
-  :config (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
+  :mode ("\\.yml\\'" . yaml-mode))
 
 (use-package restclient
   :ensure t
-  :defer t
   :pin melpa
-  :config
-  (add-to-list 'auto-mode-alist '("\.rest$" . restclient-mode)))
+  :mode ("\.rest$" . restclient-mode))
 
 (use-package company-restclient
   :ensure t

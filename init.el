@@ -30,6 +30,14 @@
   `(eval-after-load ,feature
      '(progn ,@body)))
 
+;; read file
+(defun read-lines (file-name)
+  (if (file-exists-p file-name)
+      (with-temp-buffer
+        (insert-file-contents file-name)
+        (split-string (buffer-string) "\n" t))
+    nil))
+
 ;; look settings
 (tool-bar-mode 0)
 (scroll-bar-mode 0)

@@ -10,13 +10,6 @@
 (use-package sql
   :bind ("C-c q" . sql-connect)
   :config
-  (defun read-lines (file-name)
-    (if (file-exists-p "~/.pgpass")
-        (with-temp-buffer
-          (insert-file-contents file-name)
-          (split-string (buffer-string) "\n" t))
-      nil))
-
   (defun psql:connection-alist (pgpass)
     (let ((value))
       (dolist (element pgpass value)
@@ -51,7 +44,7 @@
         (lambda ()
           (concat "\n"
                   (with-face (concat "[" (eshell/pwd) "]")
-                             :foreground "#aaffaa")
+                             :foreground "#268bd2")
                   (with-face "\n> ")))
         eshell-prompt-regexp (concat "^" (regexp-quote "> "))))
 
@@ -62,8 +55,6 @@
   :bind ("C-c m" . multi-term)
   :config
   (setq multi-term-program "/bin/zsh")
-  (set-face-foreground 'term-color-blue "SkyBlue1")
-  (set-face-foreground 'term-color-red "tomato")
   (add-hook 'term-mode-hook
             (lambda ()
               (setq term-buffer-maximum-size 10000)

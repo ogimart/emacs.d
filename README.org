@@ -2,11 +2,11 @@
 ** Installatiion
 *** OS X
 **** Install Emacs
-Install Emacs Mac Port with homebrew:
+Install GNU Emacs with homebrew:
 
 #+BEGIN_SRC bash
-  $ brew tap railwaycat/emacsmacport
-  $ brew install emacs-mac
+  $ brew install emacs --with-cocoa --with-librsvg --with-gnutls --with-imagemagick
+  $ brew link emacs
 #+END_SRC
 
 Create aliases in shell profile file such as ~.bash_profile~:
@@ -40,9 +40,15 @@ Create symbolic link for emacs.d and init.el:
 - Clojure ([[https://github.com/clojure-emacs/cider][CIDER]], [[https://github.com/clojure-emacs/clj-refactor.el][clj-refactor]])
 - Common Lisp ([[https://common-lisp.net/project/slime/][SLIME]])
 - Python ([[https://github.com/tkf/emacs-jedi][Jedi]])
-*** Other
+*** Syntax and Completion Backends
 - [[http://www.flycheck.org/en/latest/][Flycheck]]
 - [[http://company-mode.github.io/][Company]]
+*** Look
+- [[https://github.com/Malabarba/smart-mode-line][Smart Mode Line]]
+- [[http://ethanschoonover.com/solarized][Solarized Light Theme]]
+- Consolas Font
+# #+html: <p align="center"><img src="/screenshot.png" /></p>
+
 ** Custom Keybindings
 *** Global
 | Keybinding  | Description                |

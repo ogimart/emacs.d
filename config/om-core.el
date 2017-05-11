@@ -1,6 +1,6 @@
 ;; om-core.el
 ;;
-;; keywords: ido, flx-ido, fuzzy, indent
+;; keywords: flx, fuzzy, ivy, indent
 ;;           mode line, font, highlight
 
 ;; fuzzy search
@@ -15,18 +15,15 @@
   (ivy-mode 1)
   (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
   (define-key ivy-minibuffer-map (kbd "C-m") 'ivy-alt-done)
-  ;; (set-face-attribute 'ivy-current-match nil
-  ;;                     :background "SteelBlue2")
   (setq ivy-format-function 'ivy-format-function-arrow))
 
 ;; white space
 (use-package whitespace
-  :init
-  (add-hook 'prog-mode-hook 'whitespace-mode)
+  :diminish whitespace-mode
   :config
+  (add-hook 'prog-mode-hook 'whitespace-mode)
   (setq-default whitespace-line-column 100
-                whitespace-style '(face lines-tail trailing))
-  :diminish whitespace-mode)
+                whitespace-style '(face lines-tail trailing)))
 
 ;; indentation
 (use-package aggressive-indent
@@ -38,35 +35,39 @@
 (setq ns-use-srgb-colorspace t)
 
 ;; font
-(defun xs-font () (interactive) (set-frame-font "Source Code Pro-12"))
-(defun sm-font () (interactive) (set-frame-font "Source Code Pro-13"))
-(defun md-font () (interactive) (set-frame-font "Source Code Pro-14"))
-(defun lg-font () (interactive) (set-frame-font "Source Code Pro-15"))
-(defun xl-font () (interactive) (set-frame-font "Source Code Pro-16"))
-(md-font)
+(defun xs-font () (interactive) (set-frame-font "Consolas-11"))
+(defun sm-font () (interactive) (set-frame-font "Consolas-13"))
+(defun md-font () (interactive) (set-frame-font "Consolas-15"))
+(defun lg-font () (interactive) (set-frame-font "Consolas-17"))
+(defun xl-font () (interactive) (set-frame-font "Consolas-19"))
+(sm-font)
 
-(use-package tangotango-theme
+(use-package solarized-theme
   :ensure t
   :pin melpa
   :config
-  (load-theme 'tangotango t)
-  (set-face-background 'fringe "#2e3434")
-  (set-face-foreground 'vertical-border "grey50")
-  (set-face-foreground 'font-lock-builtin-face "SkyBlue1")
-  (set-face-foreground 'font-lock-keyword-face "SkyBlue1")
-  (set-face-background 'show-paren-match-face "SkyBlue3")
-  (set-face-attribute 'font-lock-string-face nil
-                      :slant 'normal :foreground "#cbaec8")
-  (set-cursor-color "DarkOrange")
-  (blink-cursor-mode 1))
+  (setq solarized-use-variable-pitch nil)
+  (setq solarized-high-contrast-mode-line nil)
+  (setq solarized-use-less-bold t)
+  (setq solarized-scale-org-headlines nil)
+  (setq x-underline-at-descent-line t)
+  (load-theme 'solarized-light t)
+  (set-face-attribute 'show-paren-match nil :weight 'bold)
+  (set-face-foreground 'ivy-minibuffer-match-face-1 "#dc322f")
+  (set-face-foreground 'ivy-minibuffer-match-face-2 "#dc322f")
+  (set-face-foreground 'ivy-minibuffer-match-face-3 "#dc322f")
+  (set-face-foreground 'ivy-minibuffer-match-face-4 "#dc322f")
+  (blink-cursor-mode 0))
 
-(use-package powerline
+(use-package smart-mode-line
   :ensure t
-  :pin melpa-stable
+  :pin melpa
   :config
-  (powerline-default-theme)
-  (set-face-background 'powerline-inactive2 "grey22")
-  (setq visible-bell nil)
+  (setq sml/no-confirm-load-theme t)
+  (setq sml/theme 'respectful)
+  (sml/setup)
+  (rich-minority-mode 1)
+  (setq rm-whitelist '(projectile-mode))
   (setq ring-bell-function
         (lambda ()
           (invert-face 'mode-line)
