@@ -1,7 +1,6 @@
 ;; om-core.el
 ;;
-;; keywords: flx, fuzzy, ivy, indent
-;;           mode line, font, highlight
+;; keywords: flx, fuzzy, ivy, indent, global edit keys
 
 ;; fuzzy search
 (use-package flx
@@ -17,6 +16,12 @@
   (define-key ivy-minibuffer-map (kbd "C-m") 'ivy-alt-done)
   (setq ivy-format-function 'ivy-format-function-arrow))
 
+;; imenu
+(use-package imenu-anywhere
+  :ensure t
+  :pin melpa-stable
+  :bind ("M-i" . imenu-anywhere))
+
 ;; white space
 (use-package whitespace
   :diminish whitespace-mode
@@ -31,59 +36,56 @@
   :defer t
   :pin melpa)
 
-;; srgb colors
-(setq ns-use-srgb-colorspace t)
+(defun top-join-line ()
+  "Join the current line with the line beneath it"
+  (interactive)
+  (delete-indentation 1))
+(global-set-key (kbd "C-^") 'top-join-line)
 
-;; font
-(defun xs-font () (interactive) (set-frame-font "Consolas-11"))
-(defun sm-font () (interactive) (set-frame-font "Consolas-13"))
-(defun md-font () (interactive) (set-frame-font "Consolas-15"))
-(defun lg-font () (interactive) (set-frame-font "Consolas-17"))
-(defun xl-font () (interactive) (set-frame-font "Consolas-19"))
-(sm-font)
+(defun open-next-line (arg)
+  "Open line below and indent"
+  (interactive "p")
+  (end-of-line)
+  (open-line arg)
+  (next-line 1)
+  (indent-according-to-mode))
+(global-set-key (kbd "M-o") 'open-next-line)
 
-(use-package solarized-theme
-  :ensure t
-  :pin melpa
-  :config
-  (setq solarized-use-variable-pitch nil)
-  (setq solarized-high-contrast-mode-line nil)
-  (setq solarized-use-less-bold t)
-  (setq solarized-scale-org-headlines nil)
-  (setq x-underline-at-descent-line t)
-  (load-theme 'solarized-light t)
-  (set-face-attribute 'show-paren-match nil :weight 'bold)
-  (set-face-foreground 'ivy-minibuffer-match-face-1 "#dc322f")
-  (set-face-foreground 'ivy-minibuffer-match-face-2 "#dc322f")
-  (set-face-foreground 'ivy-minibuffer-match-face-3 "#dc322f")
-  (set-face-foreground 'ivy-minibuffer-match-face-4 "#dc322f")
-  (blink-cursor-mode 0))
+(defun open-previous-line (arg)
+  "Open line above and indent"
+  (interactive "p")
+  (beginning-of-line)
+  (open-line arg)
+  (indent-according-to-mode))
+(global-set-key (kbd "M-O") 'open-previous-line)
 
-(use-package smart-mode-line
-  :ensure t
-  :pin melpa
-  :config
-  (setq sml/no-confirm-load-theme t)
-  (setq sml/theme 'respectful)
-  (sml/setup)
-  (rich-minority-mode 1)
-  (setq rm-whitelist '(projectile-mode))
-  (setq ring-bell-function
-        (lambda ()
-          (invert-face 'mode-line)
-          (run-with-timer 0.1 nil 'invert-face 'mode-line))))
+(defun move-line-up ()
+  "Move line up"
+  (interactive)
+  (transpose-lines 1)
+  (previous-line 2))
+(global-set-key (kbd "M-p") 'move-line-up)
 
-;; highlight numbers and quotes
-(use-package highlight-numbers
-  :ensure t
-  :pin melpa)
+(defun move-line-down ()
+  "Move line down"
+  (interactive)
+  (next-line 1)
+  (transpose-lines 1)
+  (previous-line 1))
+(global-set-key (kbd "M-n") 'move-line-down)
 
-(use-package highlight-quoted
-  :ensure t
-  :pin melpa)
+;; kill buffer without prompt
+(global-set-key (kbd "C-x k") 'kill-this-buffer)
 
-(use-package paren-face
-  :ensure t
-  :pin melpa-stable)
+;; switch buffers
+(global-set-key (kbd "M-[") 'previous-buffer)
+(global-set-key (kbd "M-]") 'next-buffer)
+
+;; window move
+(windmove-default-keybindings 'meta)
+(global-set-key (kbd "C-c <down>") 'windmove-down)
+(global-set-key (kbd "C-c <up>") 'windmove-up)
+(global-set-key (kbd "C-c <left>") 'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
 
 (provide 'om-core)

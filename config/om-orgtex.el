@@ -32,7 +32,7 @@
            "** TODO [#A] %? :work:\n")
           ("m" "meeting"
            entry (file+headline "cognical.org" "Schedule")
-           "** Meeting with %? :meeting:\nSCHEDULED: %t" :scheduled t)
+           "** Meeting with %? :meeting:\n   SCHEDULED: %t" :scheduled t)
           ("a" "appointment"
            entry (file+headline "home.org" "Appointments")
            "** %? Appointment :appointment:\nSCHEDULED: %t" :scheduled t)))
@@ -50,9 +50,7 @@
       (set-face-attribute face nil :height 1.0)))
   (add-hook 'org-mode-hook 'org-levels-hook)
   (set-face-attribute 'org-link nil :underline t
-                      :background "#fdf6e3"
-                      :foreground "#268bd2")
-  (setq org-bullets-bullet-list '("✱" "☉" "○" "◦" "∙")) ;; "⊚"
+                      :foreground "#268bd2" :background "#fdf6e3")
   (setq org-ellipsis "  ⤵"))
 
 (use-package org-bullets
@@ -60,26 +58,8 @@
   :pin melpa-stable
   :defer t
   :init
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-
-;; calendar
-
-;; (use-package org-gcal
-;;   :ensure t
-;;   :config
-;;   (setq gcal-cred (read-lines "~/.gcal"))
-;;   (setq org-gcal-client-id (car gcal-cred)
-;;         org-gcal-client-secret (cadr gcal-cred)
-;;         org-gcal-file-alist `(,(car (cddr gcal-cred)) . "~/Dropbox/org/gcal.org"))
-;;   (add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
-;;   (add-hook 'org-capture-after-finalize-hook (lambda () (org-gcal-sync))))
-
-;; (use-package calfw
-;;   :ensure t
-;;   :pin melpa-stable
-;;   :defer t
-;;   :config
-;;   (use-package calfw-org))
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (setq org-bullets-bullet-list '("✱" "☉" "○" "◦" "∙"))) ;; "⊚"
 
 (use-package tex
   :ensure auctex

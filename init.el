@@ -47,6 +47,7 @@
 (setq default-frame-alist '((width . 120) (height . 48)))
 (setq line-number-mode t)
 (setq column-number-mode t)
+(blink-cursor-mode 0)
 
 ;; keys, tabs, mac modifier and parens
 (when (eq system-type 'darwin)
@@ -69,13 +70,13 @@
 
 ;; my packages
 (add-to-list 'load-path (concat user-emacs-directory "config"))
-(require 'om-core)     ;; ido, theme, mode line, font, indent
-(require 'om-keys)     ;; global keys, interactive commands
-(require 'om-project)  ;; projectile, magit, flycheck, company, ...
-(require 'om-lisp)     ;; clojure cider, common lisp slime
-(require 'om-python)   ;; jedi, virtualenvwrapper
-(require 'om-orgtex)   ;; org-mode, auctex for LaTex
-(require 'om-term)     ;; psql, eshell, multi-term
+(require 'om-core)    ;; ivy, indent, white space, global edit
+(require 'om-theme)   ;; font, color theme, mode line, highlight
+(require 'om-project) ;; projectile, magit, flycheck, company, ...
+(require 'om-lisp)    ;; clojure cider, common lisp slime
+(require 'om-python)  ;; jedi, virtualenvwrapper
+(require 'om-orgtex)  ;; org-mode, auctex for LaTex
+(require 'om-term)    ;; psql, eshell, multi-term
 
 ;; backup
 (defvar --backup-dir (concat user-emacs-directory "backups"))
