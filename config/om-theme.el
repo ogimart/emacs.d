@@ -13,6 +13,27 @@
 (defun xl-font () (interactive) (set-frame-font "Consolas-19"))
 (sm-font)
 
+(defun set-theme-faces ()
+  (set-face-foreground 'ivy-minibuffer-match-face-1 "#dc322f")
+  (set-face-foreground 'ivy-minibuffer-match-face-2 "#dc322f")
+  (set-face-foreground 'ivy-minibuffer-match-face-3 "#dc322f")
+  (set-face-foreground 'ivy-minibuffer-match-face-4 "#dc322f")
+  (set-face-attribute 'show-paren-match nil :weight 'bold))
+
+(defun dark-theme ()
+  (interactive)
+  (mapc #'disable-theme custom-enabled-themes)
+  (load-theme 'solarized-dark t)
+  (set-theme-faces)
+  (setq light-theme-p nil))
+
+(defun light-theme ()
+  (interactive)
+  (mapc #'disable-theme custom-enabled-themes)
+  (load-theme 'solarized-light t)
+  (set-theme-faces)
+  (setq light-theme-p t))
+
 (use-package solarized-theme
   :ensure t
   :pin melpa
@@ -22,12 +43,7 @@
   (setq solarized-use-less-bold t)
   (setq solarized-scale-org-headlines nil)
   (setq x-underline-at-descent-line t)
-  (load-theme 'solarized-light t)
-  (set-face-attribute 'show-paren-match nil :weight 'bold)
-  (set-face-foreground 'ivy-minibuffer-match-face-1 "#dc322f")
-  (set-face-foreground 'ivy-minibuffer-match-face-2 "#dc322f")
-  (set-face-foreground 'ivy-minibuffer-match-face-3 "#dc322f")
-  (set-face-foreground 'ivy-minibuffer-match-face-4 "#dc322f"))
+  (light-theme))
 
 (use-package smart-mode-line
   :ensure t
