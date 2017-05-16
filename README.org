@@ -46,7 +46,7 @@ Create symbolic link for emacs.d and init.el:
 *** Look
 - [[https://github.com/Malabarba/smart-mode-line][Smart Mode Line]]
 - [[http://ethanschoonover.com/solarized][Solarized Light Theme]]
-- Consolas Font
+- [[https://www.fonts.com/font/microsoft-corporation/consolas][Consolas Font]]
 # #+html: <p align="center"><img src="/screenshot.png" /></p>
 
 ** Custom Keybindings
