@@ -29,7 +29,8 @@
 
   (add-hook 'sql-interactive-mode-hook
             (lambda ()
-              (toggle-truncate-lines t))))
+              (toggle-truncate-lines t)
+              (sql-highlight-postgres-keywords))))
 
 ;; eshell prompt
 (use-package eshell

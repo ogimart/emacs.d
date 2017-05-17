@@ -69,7 +69,8 @@
     (venv-initialize-interactive-shells)
     (venv-initialize-eshell)
     (setq venv-location "~/.virtualenvs")
-    (setq-default mode-line-format
-                  (cons '(:exec venv-current-name) mode-line-format))))
+    ;; (setq-default mode-line-format
+    ;;               (cons '(:exec venv-current-name) mode-line-format))
+    ))
 
 (provide 'om-python)

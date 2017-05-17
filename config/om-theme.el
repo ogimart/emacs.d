@@ -22,12 +22,12 @@
   (setq solarized-use-less-bold t)
   (setq solarized-scale-org-headlines nil)
   (setq x-underline-at-descent-line t)
-  (load-theme 'solarized-light t)
-  (set-face-foreground 'ivy-minibuffer-match-face-1 "#dc322f")
-  (set-face-foreground 'ivy-minibuffer-match-face-2 "#dc322f")
-  (set-face-foreground 'ivy-minibuffer-match-face-3 "#dc322f")
-  (set-face-foreground 'ivy-minibuffer-match-face-4 "#dc322f")
-  (set-face-attribute 'show-paren-match nil :weight 'bold))
+  (load-theme 'solarized-dark t)
+  (set-face-attribute 'ivy-current-match nil
+                      :underline t :bold nil :background "#002b36")
+  (set-face-attribute 'region nil :foreground "#93a1a1" :background "#003f4b")
+  (set-face-attribute 'show-paren-match nil :weight 'bold)
+  (set-cursor-color "white"))
 
 (use-package smart-mode-line
   :ensure t
@@ -36,10 +36,10 @@
   (setq sml/no-confirm-load-theme t)
   (setq sml/theme 'respectful)
   (sml/setup)
-  (set-face-attribute 'mode-line nil :overline "#f4f4f4"
-                      :background "#f4f4f4" :box "#eee8d5")
+  (set-face-attribute 'mode-line nil :overline "#00232e"
+                      :background "#00232e" :box "#00232e")
   (set-face-attribute 'mode-line-inactive nil
-                      :background "#eee8d5" :box "#eee8d5")
+                      :background "#073642" :box "#073642")
   (rich-minority-mode 1)
   (setq rm-whitelist '(projectile-mode))
   (setq ring-bell-function
