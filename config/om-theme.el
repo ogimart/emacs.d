@@ -13,21 +13,24 @@
 (defun xl-font () (interactive) (set-frame-font "Consolas-19"))
 (sm-font)
 
-(use-package solarized-theme
+(use-package zenburn-theme
   :ensure t
   :pin melpa
   :config
-  (setq solarized-use-variable-pitch nil)
-  (setq solarized-high-contrast-mode-line nil)
-  (setq solarized-use-less-bold t)
-  (setq solarized-scale-org-headlines nil)
-  (setq x-underline-at-descent-line t)
-  (load-theme 'solarized-dark t)
-  (set-face-attribute 'ivy-current-match nil
-                      :underline t :bold nil :background "#002b36")
-  (set-face-attribute 'region nil :foreground "#93a1a1" :background "#003f4b")
-  (set-face-attribute 'show-paren-match nil :weight 'bold)
-  (set-cursor-color "white"))
+  (load-theme 'zenburn t)
+  (set-face-foreground 'vertical-border "#656555")
+  (set-face-background 'fringe "#3f3f3f")
+  (set-face-attribute 'show-paren-match nil :weight 'normal :underline t
+                      :foreground "white" :background "#3f3f3f")
+  (set-face-attribute 'ivy-current-match nil :weight 'normal :underline t)
+  (set-face-attribute 'ivy-minibuffer-match-face-1 nil
+                      :foreground "#8cd0d3" :background "#3f3f3f")
+  (set-face-attribute 'ivy-minibuffer-match-face-2 nil
+                      :foreground "#8cd0d3" :background "#3f3f3f")
+  (set-face-attribute 'ivy-minibuffer-match-face-3 nil
+                      :foreground "#8cd0d3" :background "#3f3f3f")
+  (set-face-attribute 'ivy-minibuffer-match-face-4 nil
+                      :foreground "#8cd0d3" :background "#3f3f3f"))
 
 (use-package smart-mode-line
   :ensure t
@@ -36,10 +39,6 @@
   (setq sml/no-confirm-load-theme t)
   (setq sml/theme 'respectful)
   (sml/setup)
-  (set-face-attribute 'mode-line nil :overline "#00232e"
-                      :background "#00232e" :box "#00232e")
-  (set-face-attribute 'mode-line-inactive nil
-                      :background "#073642" :box "#073642")
   (rich-minority-mode 1)
   (setq rm-whitelist '(projectile-mode))
   (setq ring-bell-function
