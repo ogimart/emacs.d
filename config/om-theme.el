@@ -13,24 +13,12 @@
 (defun xl-font () (interactive) (set-frame-font "Consolas-19"))
 (sm-font)
 
-(use-package zenburn-theme
+(use-package material-theme
   :ensure t
   :pin melpa
   :config
-  (load-theme 'zenburn t)
-  (set-face-foreground 'vertical-border "#656555")
-  (set-face-background 'fringe "#3f3f3f")
-  (set-face-attribute 'show-paren-match nil :weight 'normal :underline t
-                      :foreground "white" :background "#3f3f3f")
-  (set-face-attribute 'ivy-current-match nil :weight 'normal :underline t)
-  (set-face-attribute 'ivy-minibuffer-match-face-1 nil
-                      :foreground "#8cd0d3" :background "#3f3f3f")
-  (set-face-attribute 'ivy-minibuffer-match-face-2 nil
-                      :foreground "#8cd0d3" :background "#3f3f3f")
-  (set-face-attribute 'ivy-minibuffer-match-face-3 nil
-                      :foreground "#8cd0d3" :background "#3f3f3f")
-  (set-face-attribute 'ivy-minibuffer-match-face-4 nil
-                      :foreground "#8cd0d3" :background "#3f3f3f"))
+  (load-theme 'material t)
+  (set-cursor-color "white"))
 
 (use-package smart-mode-line
   :ensure t
@@ -41,6 +29,11 @@
   (sml/setup)
   (rich-minority-mode 1)
   (setq rm-whitelist '(projectile-mode))
+  (set-face-attribute 'mode-line nil :background "#37474F"
+                      :box '(:line-width -1 :color "#555555"))
+  (set-face-attribute 'mode-line-inactive nil :background "#546E7A"
+                      :box '(:line-width -1 :color "#555555"))
+  (setq x-underline-at-descent-line t)
   (setq ring-bell-function
         (lambda ()
           (invert-face 'mode-line)

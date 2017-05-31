@@ -47,9 +47,9 @@
     "Set org-level headers size"
     (dolist
         (face '(org-level-1 org-level-2 org-level-3 org-level-4 org-level-5))
-      (set-face-attribute face nil :height 1.0)))
+      (set-face-attribute face nil :height 1.0 :box nil :background "#263238")))
   (add-hook 'org-mode-hook 'org-levels-hook)
-  (setq org-ellipsis "  ⤵")) ;; "  ⤵" "  ►"
+  (setq org-ellipsis "  …")) ;;"  ⤵" "  ►"
 
 (use-package org-bullets
   :ensure t
