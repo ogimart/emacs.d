@@ -42,13 +42,18 @@
   (setq org-mobile-inbox-for-pull (concat org-directory "/from-mobile.org"))
   (setq org-mobile-force-id-on-agenda-items nil)
 
-  ;; font
+  ;; theme
   (defun org-levels-hook ()
     "Set org-level headers size"
     (dolist
         (face '(org-level-1 org-level-2 org-level-3 org-level-4 org-level-5))
       (set-face-attribute face nil :height 1.0 :box nil :background "#263238")))
   (add-hook 'org-mode-hook 'org-levels-hook)
+  (set-face-attribute 'org-block-begin-line nil :box nil
+                      :foreground "#b3e5fc" :background "#1e2930")
+  (set-face-attribute 'org-block-end-line nil :box nil
+                      :foreground "#b3e5fc" :background "#1e2930")
+  (setq org-src-fontify-natively t)
   (setq org-ellipsis "  …")) ;;"  ⤵" "  ►"
 
 (use-package org-bullets
