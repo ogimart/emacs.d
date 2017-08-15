@@ -38,7 +38,7 @@ Create symbolic link for emacs.d and init.el:
 - [[https://magit.vc/][Magit]]
 *** Programming Languages
 - Clojure ([[https://github.com/clojure-emacs/cider][CIDER]], [[https://github.com/clojure-emacs/clj-refactor.el][clj-refactor]])
-- Common Lisp ([[https://common-lisp.net/project/slime/][SLIME]])
+- Common Lisp ([[https://github.com/joaotavora/sly][sly]])
 - Python ([[https://github.com/tkf/emacs-jedi][Jedi]])
 *** Syntax and Completion Backends
 - [[http://www.flycheck.org/en/latest/][Flycheck]]

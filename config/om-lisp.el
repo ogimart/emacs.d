@@ -1,8 +1,7 @@
-
 ;; om-lisp.el
 ;;
 ;; keywords: clojure, cider, refactor
-;;           slime, common lisp, elisp
+;;           sly, common lisp, elisp
 
 (use-package clojure-mode
   :ensure t
@@ -38,20 +37,18 @@
               (clj-refactor-mode 1)
               (yas-minor-mode 1))))
 
-(use-package slime
+(use-package sly
   :ensure t
-  :pin melpa-stable
+  :pin melpa
   :defer t
   :config
   (setq inferior-lisp-program "/usr/local/bin/sbcl")
-  ;; (load "~/quicklisp/slime-helper.el")
-  (use-package slime-company
+  (use-package sly-company
     :ensure t
-    :pin melpa-stable
-    :config (after 'slime (slime-setup '(slime-company))))
-  (add-to-list 'slime-contribs 'slime-repl)
-  (add-to-list 'slime-contribs 'slime-autodoc)
-  (add-to-list 'slime-contribs 'slime-fancy))
+    :pin melpa
+    :config
+    (add-hook 'sly-mode-hook 'sly-company-mode)
+    (add-to-list 'company-backends 'sly-company)))
 
 (use-package lisp-mode
   :init

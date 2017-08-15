@@ -73,7 +73,7 @@
 (require 'om-core)    ;; ivy, indent, white space, global edit
 (require 'om-theme)   ;; font, color theme, mode line, highlight
 (require 'om-project) ;; projectile, magit, flycheck, company, ...
-(require 'om-lisp)    ;; clojure cider, common lisp slime
+(require 'om-lisp)    ;; clojure cider, common lisp, sly, ...
 (require 'om-python)  ;; jedi, virtualenvwrapper
 (require 'om-orgtex)  ;; org-mode, auctex for LaTex
 (require 'om-term)    ;; psql, eshell, multi-term
