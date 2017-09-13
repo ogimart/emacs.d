@@ -21,11 +21,7 @@
   :config
   (setq cider-repl-use-clojure-font-lock t)
   (add-hook 'cider-repl-mode-hook #'company-mode)
-  (add-hook 'cider-mode-hook #'company-mode)
-  (set-face-foreground 'cider-fringe-good-face "#78909C")
-  (set-face-attribute 'cider-result-overlay-face nil
-                      :background "#37474F"
-                      :box '(:line-width -1 :color "#555555")))
+  (add-hook 'cider-mode-hook #'company-mode))
 
 (use-package clj-refactor
   :ensure t

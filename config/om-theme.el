@@ -11,18 +11,40 @@
 (defun md-font () (interactive) (set-frame-font "Consolas-15"))
 (defun lg-font () (interactive) (set-frame-font "Consolas-17"))
 (defun xl-font () (interactive) (set-frame-font "Consolas-19"))
-(sm-font)
+(md-font)
 
-(use-package material-theme
+;; theme
+(setq current-t43m3 nil)
+
+(defun customize-theme ()
+  (setq solarized-use-less-bold t)
+  (setq solarized-use-variable-pitch nil)
+  (setq solarized-scale-org-headlines nil)
+  (setq solarized-height-minus-1 1.0)
+  (setq solarized-height-plus-1 1.0)
+  (setq solarized-height-plus-2 1.0)
+  (setq solarized-height-plus-3 1.0)
+  (setq solarized-height-plus-4 1.0))
+
+(defun enab-theme (theme)
+  (if current-t43m3 (disable-theme current-t43m3))
+  (setq current-t43m3 theme)
+  (customize-theme)
+  (load-theme theme t))
+
+(defun sl-theme ()
+  (interactive)
+  (enab-theme 'solarized-light))
+
+(defun sd-theme ()
+  (interactive)
+  (enab-theme 'solarized-dark))
+
+(use-package solarized-theme
   :ensure t
   :pin melpa
   :config
-  (load-theme 'material t)
-  (set-cursor-color "white")
-  (set-face-attribute 'show-paren-match-face nil :bold nil :underline t
-                      :background "#263238" :foreground "white")
-  (set-face-attribute 'show-paren-mismatch-face nil :bold nil :underline t
-                      :background "#263238" :foreground "red"))
+  (sl-theme))
 
 (use-package smart-mode-line
   :ensure t
@@ -33,10 +55,6 @@
   (sml/setup)
   (rich-minority-mode 1)
   (setq rm-whitelist '(projectile-mode))
-  (set-face-attribute 'mode-line nil :background "#37474F"
-                      :box '(:line-width -1 :color "#555555"))
-  (set-face-attribute 'mode-line-inactive nil :background "#546E7A"
-                      :box '(:line-width -1 :color "#555555"))
   (setq x-underline-at-descent-line t)
   (setq ring-bell-function
         (lambda ()
