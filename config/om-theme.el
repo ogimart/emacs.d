@@ -19,9 +19,9 @@
   :config
   (load-theme 'material t)
   (set-cursor-color "white")
-  (set-face-attribute 'show-paren-match-face nil :bold t :underline t
+  (set-face-attribute 'show-paren-match-face nil :bold nil :underline t
                       :background "#263238" :foreground "white")
-  (set-face-attribute 'show-paren-mismatch-face nil :bold t :underline t
+  (set-face-attribute 'show-paren-mismatch-face nil :bold nil :underline t
                       :background "#263238" :foreground "red"))
 
 (use-package smart-mode-line

@@ -50,7 +50,13 @@
     (add-hook 'sly-mode-hook 'sly-company-mode)
     (add-to-list 'company-backends 'sly-company)))
 
+(use-package geiser
+  :ensure t
+  :pin melpa
+  :defer t)
+
 (use-package lisp-mode
+  :defer t
   :init
   (add-hook 'lisp-mode-hook 'turn-on-eldoc-mode)
   (add-hook 'lisp-mode-hook 'highlight-numbers-mode)
@@ -64,5 +70,9 @@
   (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
   (add-hook 'emacs-lisp-mode-hook 'paren-face-mode)
   (add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode))
+
+(use-package prolog-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.pl\\'" . prolog-mode)))
 
 (provide 'om-lisp)
