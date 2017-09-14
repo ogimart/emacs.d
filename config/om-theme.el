@@ -6,18 +6,18 @@
 (setq ns-use-srgb-colorspace t)
 
 ;; font
-(defun xs-font () (interactive) (set-frame-font "Consolas-11"))
-(defun sm-font () (interactive) (set-frame-font "Consolas-13"))
-(defun md-font () (interactive) (set-frame-font "Consolas-15"))
-(defun lg-font () (interactive) (set-frame-font "Consolas-17"))
-(defun xl-font () (interactive) (set-frame-font "Consolas-19"))
-(md-font)
+(defun xs-font () (interactive) (set-frame-font "Ubuntu Mono-12"))
+(defun sm-font () (interactive) (set-frame-font "Ubuntu Mono-14"))
+(defun md-font () (interactive) (set-frame-font "Ubuntu Mono-16"))
+(defun lg-font () (interactive) (set-frame-font "Ubuntu Mono-18"))
+(defun xl-font () (interactive) (set-frame-font "Ubuntu Mono-20"))
+(sm-font)
 
 ;; theme
 (setq current-t43m3 nil)
 
 (defun customize-theme ()
-  (setq solarized-use-less-bold t)
+  (setq solarized-use-less-bold nil)
   (setq solarized-use-variable-pitch nil)
   (setq solarized-scale-org-headlines nil)
   (setq solarized-height-minus-1 1.0)
