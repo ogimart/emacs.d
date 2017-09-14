@@ -54,6 +54,16 @@
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (setq org-bullets-bullet-list '("⊚" "☉" "○" "◦" "∙"))) ;;  "✱" "⊚"
 
+(use-package markdown-mode
+  :ensure t
+  :pin melpa-stable
+  :defer t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . gfm-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+
 (use-package tex
   :ensure auctex
   :defer t
