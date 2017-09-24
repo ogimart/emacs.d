@@ -43,6 +43,17 @@
   (setq org-mobile-force-id-on-agenda-items nil)
 
   ;; theme
+  (defun org-levels-hook ()
+    "Set org-level headers size"
+    (dolist
+        (face '(org-level-1 org-level-2 org-level-3 org-level-4 org-level-5))
+      (set-face-attribute face nil :height 1.0)))
+  (add-hook 'org-mode-hook 'org-levels-hook)
+  (set-face-attribute 'org-link nil :underline t
+                      :foreground "#268bd2" :background "#fdf6e3")
+  (set-face-attribute 'org-agenda-date-today nil
+                      :inverse-video nil :underline nil :bold nil
+                      :foreground "#657b83" :background "#fdf6e3")
   (setq org-src-fontify-natively t)
   (setq org-ellipsis "  …")) ;;"  ⤵" "  ►"
 

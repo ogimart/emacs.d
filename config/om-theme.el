@@ -14,9 +14,10 @@
 (sm-font)
 
 ;; theme
-(setq current-t43m3 nil)
-
-(defun customize-theme ()
+(use-package solarized-theme
+  :ensure t
+  :pin melpa
+  :config
   (setq solarized-use-less-bold nil)
   (setq solarized-use-variable-pitch nil)
   (setq solarized-scale-org-headlines nil)
@@ -24,27 +25,12 @@
   (setq solarized-height-plus-1 1.0)
   (setq solarized-height-plus-2 1.0)
   (setq solarized-height-plus-3 1.0)
-  (setq solarized-height-plus-4 1.0))
-
-(defun enab-theme (theme)
-  (if current-t43m3 (disable-theme current-t43m3))
-  (setq current-t43m3 theme)
-  (customize-theme)
-  (load-theme theme t))
-
-(defun sl-theme ()
-  (interactive)
-  (enab-theme 'solarized-light))
-
-(defun sd-theme ()
-  (interactive)
-  (enab-theme 'solarized-dark))
-
-(use-package solarized-theme
-  :ensure t
-  :pin melpa
-  :config
-  (sl-theme))
+  (setq solarized-height-plus-4 1.0)
+  (load-theme 'solarized-light t)
+  (set-face-foreground 'ivy-minibuffer-match-face-1 "#dc322f")
+  (set-face-foreground 'ivy-minibuffer-match-face-2 "#dc322f")
+  (set-face-foreground 'ivy-minibuffer-match-face-3 "#dc322f")
+  (set-face-foreground 'ivy-minibuffer-match-face-4 "#dc322f"))
 
 (use-package smart-mode-line
   :ensure t
@@ -53,6 +39,10 @@
   (setq sml/no-confirm-load-theme t)
   (setq sml/theme 'respectful)
   (sml/setup)
+  (set-face-attribute 'mode-line nil :overline "#f4f4f4"
+                      :background "#f4f4f4" :box "#eee8d5")
+  (set-face-attribute 'mode-line-inactive nil
+                      :background "#eee8d5" :box "#eee8d5")
   (rich-minority-mode 1)
   (setq rm-whitelist '(projectile-mode))
   (setq x-underline-at-descent-line t)
