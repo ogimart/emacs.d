@@ -77,6 +77,7 @@
 (require 'om-python)  ;; jedi, virtualenvwrapper
 (require 'om-orgtex)  ;; org-mode, auctex for LaTex
 (require 'om-term)    ;; psql, eshell, multi-term
+(require 'om-clang)   ;; c, c++, irony
 
 ;; backup
 (defvar --backup-dir (concat user-emacs-directory "backups"))
