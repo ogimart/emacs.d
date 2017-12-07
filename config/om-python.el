@@ -46,12 +46,11 @@
 (use-package company-jedi
   :ensure t
   :pin melpa
-  :bind (:map python-mode-map
-              ("C-c ." . jedi:goto-definition)
-              ("C-c ," . jedi:goto-definition-pop-marker)
-              ;; ("C-c r" . helm-jedi-related-names)
-              ("C-c k" . jedi:show-doc)
-              ("C-c /" . jedi:get-in-function-call))
+  :bind (("C-c ." . jedi:goto-definition)
+         ("C-c ," . jedi:goto-definition-pop-marker)
+         ;; ("C-c r" . helm-jedi-related-names)
+         ("C-c k" . jedi:show-doc)
+         ("C-c /" . jedi:get-in-function-call))
   :config
   (after 'python
     (add-hook 'python-mode-hook
@@ -62,15 +61,13 @@
 (use-package virtualenvwrapper
   :ensure t
   :pin melpa
-  :bind (:map python-mode-map
-              ("C-c v" . venv-workon))
+  :bind ("C-c v" . venv-workon)
   :config
   (after 'python
     (venv-initialize-interactive-shells)
     (venv-initialize-eshell)
     (setq venv-location "~/.virtualenvs")
-    ;; (setq-default mode-line-format
-    ;;               (cons '(:exec venv-current-name) mode-line-format))
-    ))
+    (setq-default mode-line-format
+                  (cons '(:exec venv-current-name) mode-line-format))))
 
 (provide 'om-python)

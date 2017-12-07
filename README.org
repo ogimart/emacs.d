@@ -39,6 +39,7 @@ Create symbolic link for emacs.d and init.el:
 *** Programming Languages
 - Clojure ([[https://github.com/clojure-emacs/cider][CIDER]], [[https://github.com/clojure-emacs/clj-refactor.el][clj-refactor]])
 - Common Lisp ([[https://github.com/joaotavora/sly][sly]])
+- C & C++ (clang, [[https://github.com/Sarcasm/irony-mode][irony]])
 - Python ([[https://github.com/tkf/emacs-jedi][Jedi]])
 *** Syntax and Completion Backends
 - [[http://www.flycheck.org/en/latest/][Flycheck]]
