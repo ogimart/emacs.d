@@ -74,7 +74,7 @@
 (require 'om-theme)   ;; font, color theme, mode line, highlight
 (require 'om-project) ;; projectile, magit, flycheck, company, ...
 (require 'om-lisp)    ;; clojure cider, common lisp, sly, ...
-(require 'om-python)  ;; jedi, virtualenvwrapper
+(require 'om-python)  ;; jedi, conda
 (require 'om-orgtex)  ;; org-mode, auctex for LaTex
 (require 'om-term)    ;; psql, eshell, multi-term
 (require 'om-clang)   ;; c, c++, irony

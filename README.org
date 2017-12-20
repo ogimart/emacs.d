@@ -46,9 +46,8 @@ Create symbolic link for emacs.d and init.el:
 - [[http://company-mode.github.io/][Company]]
 *** Look
 - [[https://github.com/Malabarba/smart-mode-line][Smart Mode Line]]
-- [[http://ethanschoonover.com/solarized][Solarized Light Theme]]
-- [[https://fonts.google.com/specimen/Ubuntu+Mono][Ubuntu Mono Font]]
-# #+html: <p align="center"><img src="/screenshot.png" /></p>
+- [[https://github.com/purcell/color-theme-sanityinc-tomorrow][Tomorrow Night Theme]]
+- [[https://www.wfonts.com/font/consolas][Consolas]]
 
 ** Custom Keybindings
 *** Global
@@ -79,11 +78,6 @@ Create symbolic link for emacs.d and init.el:
 | C-c a      | Org Agenda  |
 | C-c c      | Org Capture |
 |------------+-------------|
-*** Clojure Mode
-| Keybinding | Description       |
-|------------+-------------------|
-| C-c j      | CIDER jack-in     |
-|------------+-------------------|
 *** Python Mode
 | Keybinding | Description                |
 |------------+----------------------------|

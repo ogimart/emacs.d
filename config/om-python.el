@@ -1,6 +1,6 @@
 ;; om-python.el
 ;;
-;; keywords: python-mode, company-jedi, virtualenvwrapper
+;; keywords: python-mode, company-jedi, conda
 
 (use-package python
   :bind (:map python-mode-map
@@ -9,11 +9,13 @@
               ("C-c s" . django-shell-plus)
               ("C-c C-t" . ipdb:insert-trace))
   :config
-  (setq python-shell-interpreter "ipython")
+  (setq python-shell-interpreter "ipython"
+        python-shell-interpreter-args "-i")
 
   (defun ipython-interpreter ()
     (interactive)
-    (setq python-shell-interpreter "ipython")
+    (setq python-shell-interpreter "ipython"
+          python-shell-interpreter-args "-i")
     (message "interpreter: ipython"))
 
   (defun django-shell-plus ()
@@ -58,16 +60,17 @@
                 (add-to-list 'company-backends 'company-jedi)))
     (setq jedi:complete-on-dot t)))
 
-(use-package virtualenvwrapper
+(use-package conda
   :ensure t
   :pin melpa
-  :bind ("C-c v" . venv-workon)
+  :bind ("C-c v" . conda-env-activate)
   :config
   (after 'python
-    (venv-initialize-interactive-shells)
-    (venv-initialize-eshell)
-    (setq venv-location "~/.virtualenvs")
+    (conda-env-initialize-interactive-shells)
+    (conda-env-initialize-eshell)
+    (custom-set-variables
+     '(conda-anaconda-home "~/miniconda3"))
     (setq-default mode-line-format
-                  (cons '(:exec venv-current-name) mode-line-format))))
+                  (cons '(:exec conda-env-current-name) mode-line-format))))
 
 (provide 'om-python)

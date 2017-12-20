@@ -17,7 +17,7 @@
 (use-package cider
   :ensure t
   :pin melpa-stable
-  :bind ("C-c j" . cider-jack-in)
+  :defer t
   :config
   (setq cider-repl-use-clojure-font-lock t)
   (add-hook 'cider-repl-mode-hook #'company-mode)
@@ -61,6 +61,7 @@
   (add-hook 'lisp-mode-hook 'aggressive-indent-mode))
 
 (use-package emacs-lisp
+  :defer t
   :init
   (add-hook 'emacs-lisp-mode-hook 'highlight-numbers-mode)
   (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
@@ -68,6 +69,7 @@
   (add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode))
 
 (use-package prolog-mode
+  :defer t
   :init
   (add-to-list 'auto-mode-alist '("\\.pl\\'" . prolog-mode)))
 
