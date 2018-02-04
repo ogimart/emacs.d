@@ -42,8 +42,7 @@
     (highlight-lines-matching-regexp "^[ ]*import ipdb; ipdb.set_trace()"))
 
   (add-hook 'python-mode-hook 'flycheck-mode)
-  (add-hook 'python-mode-hook 'turn-on-eldoc-mode)
-  (add-hook 'python-mode-hook 'aggressive-indent-mode))
+  (add-hook 'python-mode-hook 'turn-on-eldoc-mode))
 
 (use-package company-jedi
   :ensure t

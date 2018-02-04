@@ -40,7 +40,9 @@
   :ensure t
   :pin melpa-stable
   :bind ("C-x c" . company-complete)
-  :config (global-company-mode))
+  :config
+  (global-company-mode)
+  (setq company-backends (delete 'company-semantic company-backends)))
 
 (use-package dockerfile-mode
   :ensure t

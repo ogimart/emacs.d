@@ -2,12 +2,10 @@
 ;;
 ;; keywords: flx, fuzzy, ivy, indent, global edit keys
 
-;; fuzzy search
 (use-package flx
   :ensure t
   :defer t)
 
-;; ivy
 (use-package ivy
   :ensure t
   :config
@@ -16,25 +14,17 @@
   (define-key ivy-minibuffer-map (kbd "C-m") 'ivy-alt-done)
   (setq ivy-format-function 'ivy-format-function-arrow))
 
-;; imenu
 (use-package imenu-anywhere
   :ensure t
   :pin melpa-stable
   :bind ("M-i" . imenu-anywhere))
 
-;; white space
 (use-package whitespace
   :diminish whitespace-mode
   :config
   (add-hook 'prog-mode-hook 'whitespace-mode)
   (setq-default whitespace-line-column 100
                 whitespace-style '(face lines-tail trailing)))
-
-;; indentation
-(use-package aggressive-indent
-  :ensure t
-  :defer t
-  :pin melpa)
 
 (defun top-join-line ()
   "Join the current line with the line beneath it"

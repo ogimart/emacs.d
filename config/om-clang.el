@@ -24,9 +24,17 @@
 
   (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++14"))))
 
+(use-package company-c-headers
+  :ensure t
+  :pin melpa
+  :defer t
+  :config
+  (add-to-list 'company-backends 'company-c-headers))
+
 (use-package company-irony
   :ensure t
   :pin melpa-stable
+  :defer t
   :config
   (after 'company
     (setq company-backends (delete 'company-semantic company-backends))
@@ -35,12 +43,19 @@
 (use-package irony-eldoc
   :ensure t
   :pin melpa
+  :defer t
   :config
   (add-hook 'irony-mode-hook #'irony-eldoc))
+
+(use-package cmake-mode
+  :ensure t
+  :pin melpa-stable
+  :defer t)
 
 (use-package cmake-ide
   :ensure t
   :pin melpa-stable
+  :defer t
   :config
   (cmake-ide-setup)
   (setq cmake-ide-flags-c++ (append '("-std=c++14")))
