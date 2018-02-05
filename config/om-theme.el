@@ -8,11 +8,11 @@
 (add-to-list 'default-frame-alist '(alpha . (92 . 92)))
 
 ;; font
-(defun xs-font () (interactive) (set-frame-font "Consolas-11"))
-(defun sm-font () (interactive) (set-frame-font "Consolas-13"))
-(defun md-font () (interactive) (set-frame-font "Consolas-15"))
-(defun lg-font () (interactive) (set-frame-font "Consolas-17"))
-(defun xl-font () (interactive) (set-frame-font "Consolas-19"))
+(defun xs-font () (interactive) (set-frame-font "Consolas-10"))
+(defun sm-font () (interactive) (set-frame-font "Consolas-12"))
+(defun md-font () (interactive) (set-frame-font "Consolas-14"))
+(defun lg-font () (interactive) (set-frame-font "Consolas-16"))
+(defun xl-font () (interactive) (set-frame-font "Consolas-18"))
 (sm-font)
 
 ;; theme

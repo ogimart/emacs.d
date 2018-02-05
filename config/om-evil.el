@@ -6,6 +6,6 @@
   :ensure t
   :pin melpa-stable
   :config
-  (evil-mode 1))
+  (evil-mode 0))
 
 (provide 'om-evil)
