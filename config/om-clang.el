@@ -49,7 +49,7 @@
 
 (use-package cmake-mode
   :ensure t
-  :pin melpa-stable
+  :pin melpa
   :defer t)
 
 (use-package cmake-ide
