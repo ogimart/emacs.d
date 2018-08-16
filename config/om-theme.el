@@ -4,29 +4,29 @@
 
 ;; srgb colors & transparency
 (setq ns-use-srgb-colorspace t)
-(set-frame-parameter (selected-frame) 'alpha '(92 . 92))
-(add-to-list 'default-frame-alist '(alpha . (92 . 92)))
+;; (set-frame-parameter (selected-frame) 'alpha '(92 . 92))
+;; (add-to-list 'default-frame-alist '(alpha . (92 . 92)))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 
 ;; font
-(defun xs-font () (interactive) (set-frame-font "Consolas-10"))
-(defun sm-font () (interactive) (set-frame-font "Consolas-12"))
-(defun md-font () (interactive) (set-frame-font "Consolas-14"))
-(defun lg-font () (interactive) (set-frame-font "Consolas-16"))
-(defun xl-font () (interactive) (set-frame-font "Consolas-18"))
-(sm-font)
+(defun xs-font () (interactive) (set-frame-font "SF Mono-10"))
+(defun sm-font () (interactive) (set-frame-font "SF Mono-12"))
+(defun md-font () (interactive) (set-frame-font "SF Mono-14"))
+(defun lg-font () (interactive) (set-frame-font "SF Mono-16"))
+(defun xl-font () (interactive) (set-frame-font "SF Mono-18"))
+
+(setq geom-x (nth 3 (caar (display-monitor-attributes-list))))
+(cond ((eq geom-x 1440) (sm-font))
+      ((eq geom-x 2560) (md-font))
+      (t (sm-font)))
 
 ;; theme
 (use-package color-theme-sanityinc-tomorrow
   :ensure t
   :config
   (load-theme 'sanityinc-tomorrow-night t)
-  (set-cursor-color "white")
-  (set-face-attribute 'show-paren-match-face nil
-                      :weight 'normal :underline t :overline nil :slant 'normal
-                      :foreground "white" :background nil)
-  (set-face-attribute 'show-paren-mismatch-face nil
-                      :weight 'bold :underline nil :overline nil :slant 'normal
-                      :foreground "red" :background nil))
+  (set-cursor-color "white"))
 
 (use-package smart-mode-line
   :ensure t

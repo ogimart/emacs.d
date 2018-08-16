@@ -22,15 +22,15 @@
   (add-hook 'cider-repl-mode-hook #'company-mode)
   (add-hook 'cider-mode-hook #'company-mode))
 
-(use-package clj-refactor
-  :ensure t
-  :pin melpa-stable
-  :defer t
-  :config
-  (add-hook 'clojure-mode-hook
-            (lambda ()
-              (clj-refactor-mode 1)
-              (yas-minor-mode 1))))
+;; (use-package clj-refactor
+;;   :ensure t
+;;   :pin melpa-stable
+;;   :defer t
+;;   :config
+;;   (add-hook 'clojure-mode-hook
+;;             (lambda ()
+;;               (clj-refactor-mode 1)
+;;               (yas-minor-mode 1))))
 
 (use-package sly
   :ensure t

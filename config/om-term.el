@@ -45,7 +45,7 @@
         (lambda ()
           (concat "\n"
                   (with-face (concat "[" (eshell/pwd) "]")
-                             :foreground "#268bd2")
+                             :foreground "#6897BB")
                   (with-face "\n> ")))
         eshell-prompt-regexp (concat "^" (regexp-quote "> "))))
 

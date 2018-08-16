@@ -52,7 +52,7 @@
 ;; keys, tabs, mac modifier and parens
 (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier 'meta))
+  (setq mac-option-modifier 'super))
 (setq-default indent-tabs-mode nil)
 (setq tab-always-indent 'complete)
 (defalias 'yes-or-no-p 'y-or-n-p)
