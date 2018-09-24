@@ -42,6 +42,7 @@
 ;; default emacs state
 
 (add-to-list 'evil-emacs-state-modes 'ag-mode)
+(add-to-list 'evil-emacs-state-modes 'dired)
 (add-to-list 'evil-emacs-state-modes 'flycheck-error-list-mode)
 (add-to-list 'evil-emacs-state-modes 'git-rebase-mode)
 

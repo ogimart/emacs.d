@@ -37,13 +37,7 @@
   :pin melpa
   :defer t
   :config
-  (setq inferior-lisp-program "/usr/local/bin/sbcl")
-  (use-package sly-company
-    :ensure t
-    :pin melpa
-    :config
-    (add-hook 'sly-mode-hook 'sly-company-mode)
-    (add-to-list 'company-backends 'sly-company)))
+  (setq inferior-lisp-program "/usr/local/bin/sbcl"))
 
 (use-package geiser
   :ensure t

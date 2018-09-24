@@ -56,7 +56,7 @@
   (after 'python
     (venv-initialize-interactive-shells)
     (venv-initialize-eshell)
-    (setq venv-location "~/virtualenvs")
+    (setq venv-location "~/.virtualenvs")
     (setq-default mode-line-format
                   (cons '(:exec venv-current-name) mode-line-format)))
   (after 'projectile

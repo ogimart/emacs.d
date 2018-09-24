@@ -68,6 +68,9 @@
 ;; remote files
 (setq tramp-default-method "ssh")
 
+;; config files
+(add-to-list 'auto-mode-alist '("\\.*rc$" . conf-unix-mode))
+
 ;; my packages
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 (require 'om-core)    ;; ivy, indent, white space, global edit

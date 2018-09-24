@@ -18,6 +18,7 @@
 
 (setq geom-x (nth 3 (caar (display-monitor-attributes-list))))
 (cond ((eq geom-x 1440) (sm-font))
+      ((eq geom-x 1680) (sm-font))
       ((eq geom-x 2560) (md-font))
       (t (sm-font)))
 
