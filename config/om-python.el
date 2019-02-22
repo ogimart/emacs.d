@@ -1,6 +1,6 @@
 ;; om-python.el
 ;;
-;; keywords: python-mode, company-jedi, conda
+;; keywords: python-mode, anaconda-mode, pyenv
 
 (use-package python
   :bind (:map python-mode-map
@@ -8,23 +8,22 @@
               ("C-c d" . python-interpreter)
               ("C-c C-t" . ipdb:insert-trace))
   :config
-  (setq python-shell-interpreter "ipython"
-        python-shell-interpreter-args "-i")
+  (setq python-shell-interpreter "python3")
 
   (defun i-python-interpreter ()
     (interactive)
     (setq python-shell-interpreter "ipython"
-          python-shell-interpreter-args "-i")
+          python-shell-interpreter-args "--simple-prompt -i")
     (message "interpreter: ipython"))
 
   (defun python-interpreter ()
     (interactive)
-    (setq python-shell-interpreter "python")
-          ;; python-shell-interpreter-args
+    (setq python-shell-interpreter "python3"
+          python-shell-interpreter-args "")
           ;; (concat (projectile-project-root) ""))
-    (message "interpreter: python"))
+    (message "interpreter: python3"))
 
-  ;; break point insert
+  ;; ;; break point insert
   (defun ipdb:insert-trace (arg)
     (interactive "p")
     (open-previous-line arg)
@@ -34,32 +33,31 @@
   (add-hook 'python-mode-hook 'flycheck-mode)
   (add-hook 'python-mode-hook 'turn-on-eldoc-mode))
 
-(use-package company-jedi
+(use-package anaconda-mode
   :ensure t
   :pin melpa
-  :bind (("C-c ." . jedi:goto-definition)
-         ("C-c ," . jedi:goto-definition-pop-marker)
-         ("C-c k" . jedi:show-doc)
-         ("C-c /" . jedi:get-in-function-call))
   :config
-  (after 'python
-    (add-hook 'python-mode-hook
-              (lambda ()
-                (add-to-list 'company-backends 'company-jedi)))
-    (setq jedi:complete-on-dot t)))
+  (add-hook 'python-mode-hook 'anaconda-mode)
+  (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
 
-(use-package virtualenvwrapper
+(use-package company-anaconda
   :ensure t
   :pin melpa
-  :bind ("C-c v" . venv-workon)
   :config
-  (after 'python
-    (venv-initialize-interactive-shells)
-    (venv-initialize-eshell)
-    (setq venv-location "~/.virtualenvs")
-    (setq-default mode-line-format
-                  (cons '(:exec venv-current-name) mode-line-format)))
-  (after 'projectile
-    (setq projectile-switch-project-action 'venv-projectile-auto-workon)))
+  (add-to-list 'company-backends 'company-anaconda)
+  (add-hook 'python-mode-hook 'anaconda-mode))
+
+(use-package pyenv-mode
+  :ensure t
+  :config
+    (defun projectile-pyenv-mode-set ()
+      "Set pyenv version matching project name."
+      (let ((project (projectile-project-name)))
+        (if (member project (pyenv-mode-versions))
+            (pyenv-mode-set project)
+          (pyenv-mode-unset))))
+
+    (add-hook 'projectile-switch-project-hook 'projectile-pyenv-mode-set)
+    (add-hook 'python-mode-hook 'pyenv-mode))
 
 (provide 'om-python)

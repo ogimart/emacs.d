@@ -5,39 +5,47 @@
 (use-package evil
   :ensure t
   :pin melpa-stable
+  :init (setq evil-want-keybinding nil)
   :config
   (evil-mode 1))
 
-(use-package evil-leader
+(use-package evil-collection
+  :after evil
   :ensure t
+  :pin melpa
   :config
-  (after 'evil
-    (global-evil-leader-mode)
-    (evil-leader/set-leader "<SPC>")
-    (evil-leader/set-key
-    ; emacs
-      "b" 'switch-to-buffer
-      "f" 'find-file
-      "w" 'save-buffer
-      ";" 'comment-line
-      "m" 'multi-term
-      "g" 'magit-status
-      "e" 'eshell
-      "q" 'sql-connect
-      "k" 'kill-this-buffer
-    ; projectile
-      "pp" 'projectile-switch-project
-      "pf" 'projectile-find-file
-      "pa" 'projectile-ag)
-    ; common lisp
-    (evil-leader/set-key-for-mode 'lisp-mode
-      "el" 'sly-eval-last-expression
-      "ep" 'sly-pprint-eval-last-expression
-      "ed" 'sly-eval-defun
-      "er" 'sly-eval-region
-      "ev" 'sly-re-evaluate-defvar
-      "m1" 'sly-macroexpand-1
-      "ma" 'sly-macroexpand-all)))
+  (evil-collection-init))
+
+;; (use-package evil-leader
+;;   :ensure t
+;;   :config
+;;   (after 'evil
+;;     (global-evil-leader-mode)
+;;     (evil-leader/set-leader "<SPC>")
+;;     (evil-leader/set-key
+;;     ; emacs
+;;       "b" 'switch-to-buffer
+;;       "f" 'find-file
+;;       "w" 'save-buffer
+;;       ";" 'comment-line
+;;       "m" 'multi-term
+;;       "g" 'magit-status
+;;       "e" 'eshell
+;;       "q" 'sql-connect
+;;       "k" 'kill-this-buffer
+;;     ; projectile
+;;       "pp" 'projectile-switch-project
+;;       "pf" 'projectile-find-file
+;;       "pa" 'projectile-ag)
+;;     ; common lisp
+;;     (evil-leader/set-key-for-mode 'lisp-mode
+;;       "el" 'sly-eval-last-expression
+;;       "ep" 'sly-pprint-eval-last-expression
+;;       "ed" 'sly-eval-defun
+;;       "er" 'sly-eval-region
+;;       "ev" 'sly-re-evaluate-defvar
+;;       "m1" 'sly-macroexpand-1
+;;       "ma" 'sly-macroexpand-all)))
 
 ;; default emacs state
 

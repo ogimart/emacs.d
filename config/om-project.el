@@ -13,6 +13,7 @@
   :pin melpa-stable
   :config
   (projectile-global-mode)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (setq projectile-completion-system 'ivy))
 
 (use-package project-explorer

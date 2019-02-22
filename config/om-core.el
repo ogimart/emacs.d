@@ -26,6 +26,16 @@
   (setq-default whitespace-line-column 100
                 whitespace-style '(face lines-tail trailing)))
 
+(use-package yasnippet
+  :ensure t
+  :pin melpa
+  :init (yas-global-mode 1))
+
+(use-package yasnippet-snippets
+  :after yasnippet
+  :ensure t
+  :pin melpa)
+  
 (defun top-join-line ()
   "Join the current line with the line beneath it"
   (interactive)

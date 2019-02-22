@@ -6,28 +6,28 @@
 (setq ns-use-srgb-colorspace t)
 ;; (set-frame-parameter (selected-frame) 'alpha '(92 . 92))
 ;; (add-to-list 'default-frame-alist '(alpha . (92 . 92)))
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
-;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 
-;; font
-(defun xs-font () (interactive) (set-frame-font "SF Mono-10"))
-(defun sm-font () (interactive) (set-frame-font "SF Mono-12"))
-(defun md-font () (interactive) (set-frame-font "SF Mono-14"))
-(defun lg-font () (interactive) (set-frame-font "SF Mono-16"))
-(defun xl-font () (interactive) (set-frame-font "SF Mono-18"))
+(defun sm-font () (interactive) (set-frame-font "Fira Code-11"))
+(defun md-font () (interactive) (set-frame-font "Fira Code-13"))
+(defun lg-font () (interactive) (set-frame-font "Fira Code-15"))
 
 (setq geom-x (nth 3 (caar (display-monitor-attributes-list))))
 (cond ((eq geom-x 1440) (sm-font))
-      ((eq geom-x 1680) (sm-font))
+      ((eq geom-x 1680) (md-font))
       ((eq geom-x 2560) (md-font))
       (t (sm-font)))
+(mac-auto-operator-composition-mode)
 
 ;; theme
-(use-package color-theme-sanityinc-tomorrow
+(use-package nord-theme
   :ensure t
   :config
-  (load-theme 'sanityinc-tomorrow-night t)
-  (set-cursor-color "white"))
+  (setq nord-comment-brightness 20)
+  (load-theme 'nord t)
+  ; (set-cursor-color "white")
+  )
 
 (use-package smart-mode-line
   :ensure t

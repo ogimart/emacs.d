@@ -1,4 +1,4 @@
-* Emacs 25 Configuration
+* Emacs 26 Configuration
 ** Installatiion
 *** OS X
 **** Install Emacs
@@ -36,18 +36,20 @@ Create symbolic link for emacs.d and init.el:
 - [[https://github.com/bbatsov/projectile][Projectile]]
 - [[https://github.com/abo-abo/swiper][Ivy]]
 - [[https://magit.vc/][Magit]]
+- [[https://github.com/emacs-evil/evil][Evil]]
 *** Programming Languages
 - Clojure ([[https://github.com/clojure-emacs/cider][CIDER]], [[https://github.com/clojure-emacs/clj-refactor.el][clj-refactor]])
-- Common Lisp ([[https://github.com/joaotavora/sly][sly]])
-- C & C++ (clang, [[https://github.com/Sarcasm/irony-mode][irony]])
-- Python ([[https://github.com/tkf/emacs-jedi][Jedi]])
-*** Syntax and Completion Backends
+- Common Lisp ([[https://github.com/slime/slime][SLIME]])
+- Scheme ([[https://github.com/gambit/gambit][Gambit]], [[https://github.com/vyzo/gerbil][Gerbil]])
+- Python ([[https://github.com/proofit404/anaconda-mode][Anaconda]])
+- C & C++ (clang, [[https://github.com/Sarcasm/irony-mode][Irony]])
+*** Syntax and Completion Backend
 - [[http://www.flycheck.org/en/latest/][Flycheck]]
 - [[http://company-mode.github.io/][Company]]
 *** Look
+- [[https://github.com/arcticicestudio/nord-emacs][Nord Theme]]
+- [[https://github.com/tonsky/FiraCode][Fira Code]]
 - [[https://github.com/Malabarba/smart-mode-line][Smart Mode Line]]
-- [[https://github.com/purcell/color-theme-sanityinc-tomorrow][Tomorrow Night Theme]]
-- [[https://www.wfonts.com/font/consolas][Consolas]]
 
 ** Custom Keybindings
 *** Global
@@ -81,14 +83,11 @@ Create symbolic link for emacs.d and init.el:
 *** Python Mode
 | Keybinding | Description                |
 |------------+----------------------------|
-| C-c .      | Jedi goto definition       |
-| C-c ,      | Jedi pop marker            |
-| C-c k      | Show documentation         |
 | C-c /      | Jedi function signature    |
 | C-c v      | Change virtual environment |
 | C-c i      | iPython interpreter        |
-| C-c s      | Django shell plus          |
-| C-c d      | Django runserver           |
+| C-c s      | Python 2 interpreter       |
+| C-c 3      | Python 3 interpreter       |
 | C-c C-t    | Insert ipdb trace          |
 |------------+----------------------------|
 

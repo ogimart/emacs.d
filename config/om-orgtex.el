@@ -73,7 +73,6 @@
 (use-package tex
   :ensure auctex
   :defer t
-  :pin gnu
   :config
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)

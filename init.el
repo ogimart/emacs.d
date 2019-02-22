@@ -7,11 +7,17 @@
 (setq package-archives
       '(
         ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
-        ("marmalade" . "http://marmalade-repo.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")
+        ; ("marmalade" . "http://marmalade-repo.org/packages/")
         ("gnu" . "https://elpa.gnu.org/packages/")
         ("org" . "http://orgmode.org/elpa/")
-        ("melpa" . "https://melpa.org/packages/")
         ))
+
+; (setq package-archive-priorities
+;       '(("melpa-stable" . 20)
+;         ("gnu" . 10)
+;         ("org" . 10)
+;         ("melpa" . 0)))
 
 ;; package init
 (require 'package)
@@ -70,6 +76,9 @@
 
 ;; config files
 (add-to-list 'auto-mode-alist '("\\.*rc$" . conf-unix-mode))
+
+;; regex
+(require 'rx)
 
 ;; my packages
 (add-to-list 'load-path (concat user-emacs-directory "config"))
